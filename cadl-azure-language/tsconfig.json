@@ -1,5 +1,4 @@
 {
-  "composite": true,
   "compilerOptions": {
     "composite": true,
     "alwaysStrict": true,
@@ -22,7 +21,6 @@
     "newLine": "LF",
     "outDir": "dist",
     "rootDir": ".",
-    "tsBuildInfoFile": "temp/tsconfig.tsbuildinfo",
     "types": ["node", "mocha"]
   },
   "include": ["src/**/*.ts"]
