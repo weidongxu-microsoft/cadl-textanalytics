@@ -18,13 +18,15 @@ import "./pii.cadl";
 import "./sentiment.cadl";
 import "./summarization.cadl";
 
+import "./decorators.js";
+
 using Autorest;
 using Cadl.Http;
 using Cadl.Versioning;
 
 @versionedDependency([[Versions.v2022_05_15_preview, Azure.Core.Versions.v1_0_Preview_1]])
 @versioned(Versions)
-@serviceTitle("Microsoft Cognitive Language Text Analytics")
+@serviceTitle("Text Analytics")
 @doc("""
 The language service API is a suite of natural language processing
 (NLP) skills built with best-in-class Microsoft machine learning algorithms.  The
@@ -56,6 +58,7 @@ interface Analyze {
   //   }
   // },
 
+  @convenienceMethod
   @route(":analyze-text")
   @summary("Request text analysis over a collection of documents.")
   @doc("Submit a collection of text documents for analysis.  Specify a single unique task to be executed immediately.")
