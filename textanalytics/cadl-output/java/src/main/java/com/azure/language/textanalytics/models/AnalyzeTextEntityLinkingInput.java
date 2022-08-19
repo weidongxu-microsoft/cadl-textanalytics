@@ -5,26 +5,64 @@
 package com.azure.language.textanalytics.models;
 
 import com.azure.core.annotation.Fluent;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /** The AnalyzeTextEntityLinkingInput model. */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "kind")
-@JsonTypeName("AnalyzeTextEntityLinkingInput")
+@JsonTypeName("EntityLinking")
 @Fluent
-public final class AnalyzeTextEntityLinkingInput
-        extends TaskEntityLinkingEntityLinkingTaskParametersMultiLanguageAnalysisInput {
-    /** {@inheritDoc} */
-    @Override
+public final class AnalyzeTextEntityLinkingInput extends AnalyzeTextTask {
+    /*
+     * The analysisInput property.
+     */
+    @JsonProperty(value = "analysisInput")
+    private MultiLanguageAnalysisInput analysisInput;
+
+    /*
+     * The parameters property.
+     */
+    @JsonProperty(value = "parameters")
+    private EntityLinkingTaskParameters parameters;
+
+    /**
+     * Get the analysisInput property: The analysisInput property.
+     *
+     * @return the analysisInput value.
+     */
+    public MultiLanguageAnalysisInput getAnalysisInput() {
+        return this.analysisInput;
+    }
+
+    /**
+     * Set the analysisInput property: The analysisInput property.
+     *
+     * @param analysisInput the analysisInput value to set.
+     * @return the AnalyzeTextEntityLinkingInput object itself.
+     */
     public AnalyzeTextEntityLinkingInput setAnalysisInput(MultiLanguageAnalysisInput analysisInput) {
-        super.setAnalysisInput(analysisInput);
+        this.analysisInput = analysisInput;
         return this;
     }
 
-    /** {@inheritDoc} */
-    @Override
+    /**
+     * Get the parameters property: The parameters property.
+     *
+     * @return the parameters value.
+     */
+    public EntityLinkingTaskParameters getParameters() {
+        return this.parameters;
+    }
+
+    /**
+     * Set the parameters property: The parameters property.
+     *
+     * @param parameters the parameters value to set.
+     * @return the AnalyzeTextEntityLinkingInput object itself.
+     */
     public AnalyzeTextEntityLinkingInput setParameters(EntityLinkingTaskParameters parameters) {
-        super.setParameters(parameters);
+        this.parameters = parameters;
         return this;
     }
 }

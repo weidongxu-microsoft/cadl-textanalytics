@@ -3,12 +3,12 @@ import "@azure-tools/cadl-azure-language";
 namespace Azure.Language.TextAnalytics;
 
 model AnalyzeTextSentimentAnalysisInput
-  extends Task<"SentimentAnalysis", SentimentAnalysisTaskParameters> {}
-model SentimentTaskResult extends TaskResult<"SentimentAnalysisResults", SentimentResponse> {}
+  is Task<"SentimentAnalysis", SentimentAnalysisTaskParameters> {}
+model SentimentTaskResult is TaskResult<"SentimentAnalysisResults", SentimentResponse> {}
 
 model SentimentAnalysisLROTask
-  extends LROTask<"SentimentAnalysis", SentimentAnalysisTaskParameters> {}
-model SentimentLROResult extends LROTaskResult<"SentimentAnalysisLROResults", SentimentResponse> {}
+  is LROTask<"SentimentAnalysis", SentimentAnalysisTaskParameters> {}
+model SentimentLROResult is LROTaskResult<"SentimentAnalysisLROResults", SentimentResponse> {}
 
 @doc("Supported parameters for a Sentiment Analysis task.")
 model SentimentAnalysisTaskParameters is PreBuiltTaskParameters {

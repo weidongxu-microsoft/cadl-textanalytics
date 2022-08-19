@@ -12,9 +12,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /** The EntityLinkingTaskResult model. */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "kind")
-@JsonTypeName("EntityLinkingTaskResult")
+@JsonTypeName("EntityLinkingResults")
 @Fluent
-public final class EntityLinkingTaskResult extends TaskResultEntityLinkingResultsEntityLinkingResult {
+public final class EntityLinkingTaskResult extends AnalyzeTextTaskResult {
+    /*
+     * The results property.
+     */
+    @JsonProperty(value = "results", required = true)
+    private EntityLinkingResult results;
+
     /**
      * Creates an instance of EntityLinkingTaskResult class.
      *
@@ -22,6 +28,15 @@ public final class EntityLinkingTaskResult extends TaskResultEntityLinkingResult
      */
     @JsonCreator
     public EntityLinkingTaskResult(@JsonProperty(value = "results", required = true) EntityLinkingResult results) {
-        super(results);
+        this.results = results;
+    }
+
+    /**
+     * Get the results property: The results property.
+     *
+     * @return the results value.
+     */
+    public EntityLinkingResult getResults() {
+        return this.results;
     }
 }

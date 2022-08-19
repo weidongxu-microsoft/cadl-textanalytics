@@ -5,12 +5,12 @@ import "./custommultilabel.cadl";
 namespace Azure.Language.TextAnalytics;
 
 model CustomSingleLabelClassificationLROTask
-  extends LROTask<
+  is LROTask<
     "CustomSingleLabelClassification",
     CustomSingleLabelClassificationTaskParameters
   > {}
 model CustomSingleLabelClassificationLROResult
-  extends LROTaskResult<
+  is LROTaskResult<
     "CustomSingleLabelClassificationLROResults",
     CustomLabelClassificationResult
   > {}

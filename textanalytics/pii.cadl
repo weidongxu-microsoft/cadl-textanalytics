@@ -3,12 +3,12 @@ import "@azure-tools/cadl-azure-language";
 namespace Azure.Language.TextAnalytics;
 
 model AnalyzeTextPiiEntitiesRecognitionInput
-  extends Task<"PiiEntityRecognition", PiiTaskParameters> {}
-model PiiTaskResult extends TaskResult<"PiiEntityRecognitionResults", PiiResult> {}
+  is Task<"PiiEntityRecognition", PiiTaskParameters> {}
+model PiiTaskResult is TaskResult<"PiiEntityRecognitionResults", PiiResult> {}
 
-model PiiLROTask extends LROTask<"PiiEntityRecognition", PiiTaskParameters> {}
+model PiiLROTask is LROTask<"PiiEntityRecognition", PiiTaskParameters> {}
 model PiiEntityRecognitionLROResult
-  extends LROTaskResult<"PiiEntityRecognitionLROResults", PiiResult> {}
+  is LROTaskResult<"PiiEntityRecognitionLROResults", PiiResult> {}
 
 @doc("Supported parameters for a PII Entities Recognition task.")
 model PiiTaskParameters is PreBuiltTaskParameters {

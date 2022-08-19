@@ -3,9 +3,9 @@ import "@azure-tools/cadl-azure-language";
 namespace Azure.Language.TextAnalytics;
 
 model ExtractiveSummarizationLROTask
-  extends LROTask<"ExtractiveSummarization", ExtractiveSummarizationTaskParameters> {}
+  is LROTask<"ExtractiveSummarization", ExtractiveSummarizationTaskParameters> {}
 model ExtractiveSummarizationLROResult
-  extends LROTaskResult<"ExtractiveSummarizationLROResults", ExtractiveSummarizationResult> {}
+  is LROTaskResult<"ExtractiveSummarizationLROResults", ExtractiveSummarizationResult> {}
 
 @doc("Supported parameters for an Extractive Summarization task.")
 model ExtractiveSummarizationTaskParameters is PreBuiltTaskParameters {

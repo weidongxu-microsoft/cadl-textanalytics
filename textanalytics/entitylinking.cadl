@@ -2,12 +2,12 @@ import "@azure-tools/cadl-azure-language";
 
 namespace Azure.Language.TextAnalytics;
 
-model AnalyzeTextEntityLinkingInput extends Task<"EntityLinking", EntityLinkingTaskParameters> {}
-model EntityLinkingTaskResult extends TaskResult<"EntityLinkingResults", EntityLinkingResult> {}
+model AnalyzeTextEntityLinkingInput is Task<"EntityLinking", EntityLinkingTaskParameters> {}
+model EntityLinkingTaskResult is TaskResult<"EntityLinkingResults", EntityLinkingResult> {}
 
-model EntityLinkingLROTask extends LROTask<"EntityLinking", EntityLinkingTaskParameters> {}
+model EntityLinkingLROTask is LROTask<"EntityLinking", EntityLinkingTaskParameters> {}
 model EntityLinkingLROResult
-  extends LROTaskResult<"EntityLinkingLROResults", EntityLinkingResult> {}
+  is LROTaskResult<"EntityLinkingLROResults", EntityLinkingResult> {}
 
 @doc("Supported parameters for an Entity Linking task.")
 model EntityLinkingTaskParameters is PreBuiltTaskParameters {

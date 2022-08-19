@@ -17,22 +17,12 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
         defaultImpl = AnalyzeTextTaskResult.class)
 @JsonTypeName("AnalyzeTextTaskResult")
 @JsonSubTypes({
-    @JsonSubTypes.Type(
-            name = "EntityRecognitionResults",
-            value = TaskResultEntityRecognitionResultsEntitiesResult.class),
-    @JsonSubTypes.Type(name = "EntityLinkingResults", value = TaskResultEntityLinkingResultsEntityLinkingResult.class),
-    @JsonSubTypes.Type(
-            name = "KeyPhraseExtractionResults",
-            value = TaskResultKeyPhraseExtractionResultsKeyPhraseResult.class),
-    @JsonSubTypes.Type(
-            name = "LanguageDetectionResults",
-            value = TaskResultLanguageDetectionResultsLanguageDetectionResult.class),
-    @JsonSubTypes.Type(
-            name = "PiiEntityRecognitionResults",
-            value = TaskResultPiiEntityRecognitionResultsPiiResult.class),
-    @JsonSubTypes.Type(
-            name = "SentimentAnalysisResults",
-            value = TaskResultSentimentAnalysisResultsSentimentResponse.class)
+    @JsonSubTypes.Type(name = "EntityRecognitionResults", value = EntitiesTaskResult.class),
+    @JsonSubTypes.Type(name = "EntityLinkingResults", value = EntityLinkingTaskResult.class),
+    @JsonSubTypes.Type(name = "KeyPhraseExtractionResults", value = KeyPhraseTaskResult.class),
+    @JsonSubTypes.Type(name = "LanguageDetectionResults", value = LanguageDetectionTaskResult.class),
+    @JsonSubTypes.Type(name = "PiiEntityRecognitionResults", value = PiiTaskResult.class),
+    @JsonSubTypes.Type(name = "SentimentAnalysisResults", value = SentimentTaskResult.class)
 })
 @Immutable
 public class AnalyzeTextTaskResult {}

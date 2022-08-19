@@ -3,13 +3,13 @@ import "@azure-tools/cadl-azure-language";
 namespace Azure.Language.TextAnalytics;
 
 model AnalyzeTextLanguageDetectionInput
-  extends Task<
+  is Task<
     "LanguageDetection",
     LanguageDetectionTaskParameters,
     LanguageDetectionAnalysisInput
   > {}
 model LanguageDetectionTaskResult
-  extends TaskResult<"LanguageDetectionResults", LanguageDetectionResult> {}
+  is TaskResult<"LanguageDetectionResults", LanguageDetectionResult> {}
 
 model LanguageDetectionTaskParameters is PreBuiltTaskParameters;
 

@@ -5,26 +5,64 @@
 package com.azure.language.textanalytics.models;
 
 import com.azure.core.annotation.Fluent;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /** The AnalyzeTextLanguageDetectionInput model. */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "kind")
-@JsonTypeName("AnalyzeTextLanguageDetectionInput")
+@JsonTypeName("LanguageDetection")
 @Fluent
-public final class AnalyzeTextLanguageDetectionInput
-        extends TaskLanguageDetectionLanguageDetectionTaskParametersLanguageDetectionAnalysisInput {
-    /** {@inheritDoc} */
-    @Override
+public final class AnalyzeTextLanguageDetectionInput extends AnalyzeTextTask {
+    /*
+     * The analysisInput property.
+     */
+    @JsonProperty(value = "analysisInput")
+    private LanguageDetectionAnalysisInput analysisInput;
+
+    /*
+     * The parameters property.
+     */
+    @JsonProperty(value = "parameters")
+    private LanguageDetectionTaskParameters parameters;
+
+    /**
+     * Get the analysisInput property: The analysisInput property.
+     *
+     * @return the analysisInput value.
+     */
+    public LanguageDetectionAnalysisInput getAnalysisInput() {
+        return this.analysisInput;
+    }
+
+    /**
+     * Set the analysisInput property: The analysisInput property.
+     *
+     * @param analysisInput the analysisInput value to set.
+     * @return the AnalyzeTextLanguageDetectionInput object itself.
+     */
     public AnalyzeTextLanguageDetectionInput setAnalysisInput(LanguageDetectionAnalysisInput analysisInput) {
-        super.setAnalysisInput(analysisInput);
+        this.analysisInput = analysisInput;
         return this;
     }
 
-    /** {@inheritDoc} */
-    @Override
+    /**
+     * Get the parameters property: The parameters property.
+     *
+     * @return the parameters value.
+     */
+    public LanguageDetectionTaskParameters getParameters() {
+        return this.parameters;
+    }
+
+    /**
+     * Set the parameters property: The parameters property.
+     *
+     * @param parameters the parameters value to set.
+     * @return the AnalyzeTextLanguageDetectionInput object itself.
+     */
     public AnalyzeTextLanguageDetectionInput setParameters(LanguageDetectionTaskParameters parameters) {
-        super.setParameters(parameters);
+        this.parameters = parameters;
         return this;
     }
 }

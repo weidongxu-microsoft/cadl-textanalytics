@@ -12,9 +12,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /** The PiiTaskResult model. */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "kind")
-@JsonTypeName("PiiTaskResult")
+@JsonTypeName("PiiEntityRecognitionResults")
 @Fluent
-public final class PiiTaskResult extends TaskResultPiiEntityRecognitionResultsPiiResult {
+public final class PiiTaskResult extends AnalyzeTextTaskResult {
+    /*
+     * The results property.
+     */
+    @JsonProperty(value = "results", required = true)
+    private PiiResult results;
+
     /**
      * Creates an instance of PiiTaskResult class.
      *
@@ -22,6 +28,15 @@ public final class PiiTaskResult extends TaskResultPiiEntityRecognitionResultsPi
      */
     @JsonCreator
     public PiiTaskResult(@JsonProperty(value = "results", required = true) PiiResult results) {
-        super(results);
+        this.results = results;
+    }
+
+    /**
+     * Get the results property: The results property.
+     *
+     * @return the results value.
+     */
+    public PiiResult getResults() {
+        return this.results;
     }
 }

@@ -12,9 +12,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /** The LanguageDetectionTaskResult model. */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "kind")
-@JsonTypeName("LanguageDetectionTaskResult")
+@JsonTypeName("LanguageDetectionResults")
 @Fluent
-public final class LanguageDetectionTaskResult extends TaskResultLanguageDetectionResultsLanguageDetectionResult {
+public final class LanguageDetectionTaskResult extends AnalyzeTextTaskResult {
+    /*
+     * The results property.
+     */
+    @JsonProperty(value = "results", required = true)
+    private LanguageDetectionResult results;
+
     /**
      * Creates an instance of LanguageDetectionTaskResult class.
      *
@@ -23,6 +29,15 @@ public final class LanguageDetectionTaskResult extends TaskResultLanguageDetecti
     @JsonCreator
     public LanguageDetectionTaskResult(
             @JsonProperty(value = "results", required = true) LanguageDetectionResult results) {
-        super(results);
+        this.results = results;
+    }
+
+    /**
+     * Get the results property: The results property.
+     *
+     * @return the results value.
+     */
+    public LanguageDetectionResult getResults() {
+        return this.results;
     }
 }

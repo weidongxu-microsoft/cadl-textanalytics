@@ -3,12 +3,12 @@ import "@azure-tools/cadl-azure-language";
 namespace Azure.Language.TextAnalytics;
 
 model AnalyzeTextKeyPhraseExtractionInput
-  extends Task<"KeyPhraseExtraction", KeyPhraseTaskParameters> {}
-model KeyPhraseTaskResult extends TaskResult<"KeyPhraseExtractionResults", KeyPhraseResult> {}
+  is Task<"KeyPhraseExtraction", KeyPhraseTaskParameters> {}
+model KeyPhraseTaskResult is TaskResult<"KeyPhraseExtractionResults", KeyPhraseResult> {}
 
-model KeyPhraseLROTask extends LROTask<"KeyPhraseExtraction", KeyPhraseTaskParameters> {}
+model KeyPhraseLROTask is LROTask<"KeyPhraseExtraction", KeyPhraseTaskParameters> {}
 model KeyPhraseExtractionLROResult
-  extends LROTaskResult<"KeyPhraseExtractionLROResults", KeyPhraseResult> {}
+  is LROTaskResult<"KeyPhraseExtractionLROResults", KeyPhraseResult> {}
 
 model KeyPhraseTaskParameters is PreBuiltTaskParameters;
 

@@ -17,24 +17,12 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
         defaultImpl = AnalyzeTextTask.class)
 @JsonTypeName("AnalyzeTextTask")
 @JsonSubTypes({
-    @JsonSubTypes.Type(
-            name = "EntityRecognition",
-            value = TaskEntityRecognitionEntitiesTaskParametersMultiLanguageAnalysisInput.class),
-    @JsonSubTypes.Type(
-            name = "EntityLinking",
-            value = TaskEntityLinkingEntityLinkingTaskParametersMultiLanguageAnalysisInput.class),
-    @JsonSubTypes.Type(
-            name = "KeyPhraseExtraction",
-            value = TaskKeyPhraseExtractionKeyPhraseTaskParametersMultiLanguageAnalysisInput.class),
-    @JsonSubTypes.Type(
-            name = "LanguageDetection",
-            value = TaskLanguageDetectionLanguageDetectionTaskParametersLanguageDetectionAnalysisInput.class),
-    @JsonSubTypes.Type(
-            name = "PiiEntityRecognition",
-            value = TaskPiiEntityRecognitionPiiTaskParametersMultiLanguageAnalysisInput.class),
-    @JsonSubTypes.Type(
-            name = "SentimentAnalysis",
-            value = TaskSentimentAnalysisSentimentAnalysisTaskParametersMultiLanguageAnalysisInput.class)
+    @JsonSubTypes.Type(name = "EntityRecognition", value = AnalyzeTextEntityRecognitionInput.class),
+    @JsonSubTypes.Type(name = "EntityLinking", value = AnalyzeTextEntityLinkingInput.class),
+    @JsonSubTypes.Type(name = "KeyPhraseExtraction", value = AnalyzeTextKeyPhraseExtractionInput.class),
+    @JsonSubTypes.Type(name = "LanguageDetection", value = AnalyzeTextLanguageDetectionInput.class),
+    @JsonSubTypes.Type(name = "PiiEntityRecognition", value = AnalyzeTextPiiEntitiesRecognitionInput.class),
+    @JsonSubTypes.Type(name = "SentimentAnalysis", value = AnalyzeTextSentimentAnalysisInput.class)
 })
 @Immutable
 public class AnalyzeTextTask {}

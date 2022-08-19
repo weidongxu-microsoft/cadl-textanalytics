@@ -12,9 +12,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /** The KeyPhraseTaskResult model. */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "kind")
-@JsonTypeName("KeyPhraseTaskResult")
+@JsonTypeName("KeyPhraseExtractionResults")
 @Fluent
-public final class KeyPhraseTaskResult extends TaskResultKeyPhraseExtractionResultsKeyPhraseResult {
+public final class KeyPhraseTaskResult extends AnalyzeTextTaskResult {
+    /*
+     * The results property.
+     */
+    @JsonProperty(value = "results", required = true)
+    private KeyPhraseResult results;
+
     /**
      * Creates an instance of KeyPhraseTaskResult class.
      *
@@ -22,6 +28,15 @@ public final class KeyPhraseTaskResult extends TaskResultKeyPhraseExtractionResu
      */
     @JsonCreator
     public KeyPhraseTaskResult(@JsonProperty(value = "results", required = true) KeyPhraseResult results) {
-        super(results);
+        this.results = results;
+    }
+
+    /**
+     * Get the results property: The results property.
+     *
+     * @return the results value.
+     */
+    public KeyPhraseResult getResults() {
+        return this.results;
     }
 }

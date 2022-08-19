@@ -12,9 +12,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /** The SentimentTaskResult model. */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "kind")
-@JsonTypeName("SentimentTaskResult")
+@JsonTypeName("SentimentAnalysisResults")
 @Fluent
-public final class SentimentTaskResult extends TaskResultSentimentAnalysisResultsSentimentResponse {
+public final class SentimentTaskResult extends AnalyzeTextTaskResult {
+    /*
+     * The results property.
+     */
+    @JsonProperty(value = "results", required = true)
+    private SentimentResponse results;
+
     /**
      * Creates an instance of SentimentTaskResult class.
      *
@@ -22,6 +28,15 @@ public final class SentimentTaskResult extends TaskResultSentimentAnalysisResult
      */
     @JsonCreator
     public SentimentTaskResult(@JsonProperty(value = "results", required = true) SentimentResponse results) {
-        super(results);
+        this.results = results;
+    }
+
+    /**
+     * Get the results property: The results property.
+     *
+     * @return the results value.
+     */
+    public SentimentResponse getResults() {
+        return this.results;
     }
 }

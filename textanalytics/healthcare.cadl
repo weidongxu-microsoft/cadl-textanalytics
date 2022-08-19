@@ -2,8 +2,8 @@ import "@azure-tools/cadl-azure-language";
 
 namespace Azure.Language.TextAnalytics;
 
-model HealthcareLROTask extends LROTask<"Healthcare", HealthcareTaskParameters> {}
-model HealthcareLROResult extends LROTaskResult<"HealthcareLROResults", HealthcareResult> {}
+model HealthcareLROTask is LROTask<"Healthcare", HealthcareTaskParameters> {}
+model HealthcareLROResult is LROTaskResult<"HealthcareLROResults", HealthcareResult> {}
 
 @doc("Supported parameters for a Healthcare task.")
 model HealthcareTaskParameters is PreBuiltTaskParameters {
