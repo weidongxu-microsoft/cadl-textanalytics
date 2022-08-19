@@ -1,0 +1,18 @@
+import "@azure-tools/cadl-azure-language";
+
+import "./custommultilabel.cadl";
+
+namespace Azure.Language.TextAnalytics;
+
+model CustomSingleLabelClassificationLROTask
+  extends LROTask<
+    "CustomSingleLabelClassification",
+    CustomSingleLabelClassificationTaskParameters
+  > {}
+model CustomSingleLabelClassificationLROResult
+  extends LROTaskResult<
+    "CustomSingleLabelClassificationLROResults",
+    CustomLabelClassificationResult
+  > {}
+
+model CustomSingleLabelClassificationTaskParameters is CustomTaskParameters;
