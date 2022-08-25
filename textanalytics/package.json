@@ -7,7 +7,7 @@
       "@azure-tools/cadl-autorest": "^0.19.0",
       "@azure-tools/cadl-azure-core": "^0.6.0",
       "@azure-tools/cadl-azure-language": "file:/../cadl-azure-language/azure-tools-cadl-azure-language-0.1.0.tgz",
-      "@azure-tools/cadl-java": "https://github.com/Azure/autorest.java/releases/download/%40azure-tools%2Fcadl-java_0.1.0-dev.2/cadl-extension.azure-tools-cadl-java-0.1.0-dev.2.tgz"
+      "@azure-tools/cadl-java": "https://github.com/Azure/autorest.java/releases/download/%40azure-tools%2Fcadl-java_0.1.0-dev.3/cadl-extension.azure-tools-cadl-java-0.1.0-dev.3.tgz"
     },
     "private": true
   }
