@@ -3062,7 +3062,9 @@ operationGroups:
                   - application/json
             schema: *ref_32
 security:
-  authenticationRequired: false
-  schemes: []
+  authenticationRequired: true
+  schemes:
+    - type: Key
+      name: Ocp-Apim-Subscription-Key
 globalParameters:
   - *ref_33

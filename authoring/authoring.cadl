@@ -12,6 +12,7 @@ using Azure.Core;
 // NOTE: These features are missing:
 // - Security definition for apiKey
 
+@useAuth(ApiKeyAuth<ApiKeyLocation.header, "Ocp-Apim-Subscription-Key">)
 @server(
   "{Endpoint}/language",
   "Language Service",
