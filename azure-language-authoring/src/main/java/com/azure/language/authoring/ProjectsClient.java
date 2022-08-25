@@ -469,7 +469,13 @@ public final class ProjectsClient {
             String projectName, String projectFileVersion, Context context) {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.setContext(context);
-        return exportWithResponse(projectName, projectFileVersion, requestOptions);
+        Response<Void> protocolMethodResponse = exportWithResponse(projectName, projectFileVersion, requestOptions);
+        return new ResponseBase<>(
+                protocolMethodResponse.getRequest(),
+                protocolMethodResponse.getStatusCode(),
+                protocolMethodResponse.getHeaders(),
+                null,
+                new ProjectsExportHeaders(protocolMethodResponse.getHeaders()));
     }
 
     /*
@@ -514,7 +520,13 @@ public final class ProjectsClient {
     public ResponseBase<ProjectsImportxHeaders, Void> importxWithResponse(String projectName, Context context) {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.setContext(context);
-        return importxWithResponse(projectName, requestOptions);
+        Response<Void> protocolMethodResponse = importxWithResponse(projectName, requestOptions);
+        return new ResponseBase<>(
+                protocolMethodResponse.getRequest(),
+                protocolMethodResponse.getStatusCode(),
+                protocolMethodResponse.getHeaders(),
+                null,
+                new ProjectsImportxHeaders(protocolMethodResponse.getHeaders()));
     }
 
     /*
@@ -562,6 +574,13 @@ public final class ProjectsClient {
             String projectName, TrainingJobOptions body, Context context) {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.setContext(context);
-        return trainWithResponse(projectName, BinaryData.fromObject(body), requestOptions);
+        Response<Void> protocolMethodResponse =
+                trainWithResponse(projectName, BinaryData.fromObject(body), requestOptions);
+        return new ResponseBase<>(
+                protocolMethodResponse.getRequest(),
+                protocolMethodResponse.getStatusCode(),
+                protocolMethodResponse.getHeaders(),
+                null,
+                new ProjectsTrainHeaders(protocolMethodResponse.getHeaders()));
     }
 }

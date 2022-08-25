@@ -393,6 +393,13 @@ public final class DeploymentsClient {
             String projectName, SwapDeploymentsOptions body, Context context) {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.setContext(context);
-        return swapDeploymentsWithResponse(projectName, BinaryData.fromObject(body), requestOptions);
+        Response<Void> protocolMethodResponse =
+                swapDeploymentsWithResponse(projectName, BinaryData.fromObject(body), requestOptions);
+        return new ResponseBase<>(
+                protocolMethodResponse.getRequest(),
+                protocolMethodResponse.getStatusCode(),
+                protocolMethodResponse.getHeaders(),
+                null,
+                new DeploymentsSwapDeploymentsHeaders(protocolMethodResponse.getHeaders()));
     }
 }
