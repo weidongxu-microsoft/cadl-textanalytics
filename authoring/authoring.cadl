@@ -230,8 +230,8 @@ model SwapDeploymentsParams {
   body: SwapDeploymentsOptions;
 }
 
+@convenienceMethod
 interface Projects {
-  @convenienceMethod
   @doc("Creates a new project or updates an existing one.")
   createOrUpdate is LongRunningResourceCreateOrUpdate<Project>;
 
@@ -274,6 +274,7 @@ interface Projects {
   >;
 }
 
+@convenienceMethod
 interface Deployments {
   @doc("Gets the details of a deployment.")
   getDeployment is ResourceRead<Deployment>;
@@ -296,6 +297,7 @@ interface Deployments {
   >;
 }
 
+@convenienceMethod
 interface Jobs {
   @doc("Gets the status of an existing deployment job.")
   getDeploymentStatus is ResourceRead<DeploymentJob>;
