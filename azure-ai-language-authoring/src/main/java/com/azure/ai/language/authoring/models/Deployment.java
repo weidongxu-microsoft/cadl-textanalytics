@@ -4,12 +4,12 @@
 
 package com.azure.ai.language.authoring.models;
 
-import com.azure.core.annotation.Fluent;
+import com.azure.core.annotation.Immutable;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The Deployment model. */
-@Fluent
+@Immutable
 public final class Deployment {
     /*
      * The name property.

@@ -4,12 +4,12 @@
 
 package com.azure.ai.language.authoring.models;
 
-import com.azure.core.annotation.Fluent;
+import com.azure.core.annotation.Immutable;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** Represents a warning that was encountered while executing the request. */
-@Fluent
+@Immutable
 public final class JobWarning {
     /*
      * The warning code.
