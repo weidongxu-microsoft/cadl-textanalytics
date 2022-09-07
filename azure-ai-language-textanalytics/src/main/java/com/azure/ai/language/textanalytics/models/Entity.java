@@ -34,14 +34,14 @@ public final class Entity {
      * Use of different 'stringIndexType' values can affect the offset returned.
      */
     @JsonProperty(value = "offset", required = true)
-    private long offset;
+    private int offset;
 
     /*
      * Length for the entity text.
      * Use of different 'stringIndexType' values can affect the length returned.
      */
     @JsonProperty(value = "length", required = true)
-    private long length;
+    private int length;
 
     /*
      * Confidence score between 0 and 1 of the extracted entity.
@@ -62,8 +62,8 @@ public final class Entity {
     public Entity(
             @JsonProperty(value = "text", required = true) String text,
             @JsonProperty(value = "category", required = true) String category,
-            @JsonProperty(value = "offset", required = true) long offset,
-            @JsonProperty(value = "length", required = true) long length,
+            @JsonProperty(value = "offset", required = true) int offset,
+            @JsonProperty(value = "length", required = true) int length,
             @JsonProperty(value = "confidenceScore", required = true) double confidenceScore) {
         this.text = text;
         this.category = category;
@@ -116,7 +116,7 @@ public final class Entity {
      *
      * @return the offset value.
      */
-    public long getOffset() {
+    public int getOffset() {
         return this.offset;
     }
 
@@ -126,7 +126,7 @@ public final class Entity {
      *
      * @return the length value.
      */
-    public long getLength() {
+    public int getLength() {
         return this.length;
     }
 

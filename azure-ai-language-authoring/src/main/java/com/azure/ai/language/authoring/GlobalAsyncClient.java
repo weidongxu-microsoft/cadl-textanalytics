@@ -40,9 +40,9 @@ public final class GlobalAsyncClient {
      * <table border="1">
      *     <caption>Query Parameters</caption>
      *     <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-     *     <tr><td>top</td><td>Long</td><td>No</td><td>The top parameter</td></tr>
-     *     <tr><td>skip</td><td>Long</td><td>No</td><td>The skip parameter</td></tr>
-     *     <tr><td>maxpagesize</td><td>Long</td><td>No</td><td>The maxPageSize parameter</td></tr>
+     *     <tr><td>top</td><td>Integer</td><td>No</td><td>The top parameter</td></tr>
+     *     <tr><td>skip</td><td>Integer</td><td>No</td><td>The skip parameter</td></tr>
+     *     <tr><td>maxpagesize</td><td>Integer</td><td>No</td><td>The maxPageSize parameter</td></tr>
      * </table>
      *
      * You can add these to a request with {@link RequestOptions#addQueryParam}
@@ -82,9 +82,9 @@ public final class GlobalAsyncClient {
      * <table border="1">
      *     <caption>Query Parameters</caption>
      *     <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-     *     <tr><td>top</td><td>Long</td><td>No</td><td>The top parameter</td></tr>
-     *     <tr><td>skip</td><td>Long</td><td>No</td><td>The skip parameter</td></tr>
-     *     <tr><td>maxpagesize</td><td>Long</td><td>No</td><td>The maxPageSize parameter</td></tr>
+     *     <tr><td>top</td><td>Integer</td><td>No</td><td>The top parameter</td></tr>
+     *     <tr><td>skip</td><td>Integer</td><td>No</td><td>The skip parameter</td></tr>
+     *     <tr><td>maxpagesize</td><td>Integer</td><td>No</td><td>The maxPageSize parameter</td></tr>
      * </table>
      *
      * You can add these to a request with {@link RequestOptions#addQueryParam}

@@ -27,13 +27,13 @@ public final class SentenceAssessment {
      * The assessment offset from the start of the sentence.
      */
     @JsonProperty(value = "offset", required = true)
-    private long offset;
+    private int offset;
 
     /*
      * The length of the assessment.
      */
     @JsonProperty(value = "length", required = true)
-    private long length;
+    private int length;
 
     /*
      * The assessment text detected.
@@ -61,8 +61,8 @@ public final class SentenceAssessment {
     public SentenceAssessment(
             @JsonProperty(value = "sentiment", required = true) TokenSentimentValue sentiment,
             @JsonProperty(value = "confidenceScores", required = true) TargetConfidenceScoreLabel confidenceScores,
-            @JsonProperty(value = "offset", required = true) long offset,
-            @JsonProperty(value = "length", required = true) long length,
+            @JsonProperty(value = "offset", required = true) int offset,
+            @JsonProperty(value = "length", required = true) int length,
             @JsonProperty(value = "text", required = true) String text,
             @JsonProperty(value = "isNegated", required = true) boolean isNegated) {
         this.sentiment = sentiment;
@@ -96,7 +96,7 @@ public final class SentenceAssessment {
      *
      * @return the offset value.
      */
-    public long getOffset() {
+    public int getOffset() {
         return this.offset;
     }
 
@@ -105,7 +105,7 @@ public final class SentenceAssessment {
      *
      * @return the length value.
      */
-    public long getLength() {
+    public int getLength() {
         return this.length;
     }
 

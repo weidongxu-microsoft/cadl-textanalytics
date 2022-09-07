@@ -28,13 +28,13 @@ public final class Match {
      * Start position for the entity match text
      */
     @JsonProperty(value = "offset", required = true)
-    private long offset;
+    private int offset;
 
     /*
      * Length for the entity match text.
      */
     @JsonProperty(value = "length", required = true)
-    private long length;
+    private int length;
 
     /**
      * Creates an instance of Match class.
@@ -48,8 +48,8 @@ public final class Match {
     public Match(
             @JsonProperty(value = "confidenceScore", required = true) double confidenceScore,
             @JsonProperty(value = "text", required = true) String text,
-            @JsonProperty(value = "offset", required = true) long offset,
-            @JsonProperty(value = "length", required = true) long length) {
+            @JsonProperty(value = "offset", required = true) int offset,
+            @JsonProperty(value = "length", required = true) int length) {
         this.confidenceScore = confidenceScore;
         this.text = text;
         this.offset = offset;
@@ -80,7 +80,7 @@ public final class Match {
      *
      * @return the offset value.
      */
-    public long getOffset() {
+    public int getOffset() {
         return this.offset;
     }
 
@@ -89,7 +89,7 @@ public final class Match {
      *
      * @return the length value.
      */
-    public long getLength() {
+    public int getLength() {
         return this.length;
     }
 }

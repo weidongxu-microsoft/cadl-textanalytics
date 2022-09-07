@@ -199,4 +199,25 @@ public final class DeploymentsAsyncClient {
                 .map(Response::getValue)
                 .map(protocolMethodData -> protocolMethodData.toObject(Deployment.class));
     }
+
+    /**
+     * Lists the existing deployments.
+     *
+     * @param projectName The projectName parameter.
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of Deployment items as paginated response with {@link PagedFlux}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedFlux<Deployment> list(String projectName) {
+        // Generated convenience method for list
+        RequestOptions requestOptions = new RequestOptions();
+        return list(projectName, requestOptions)
+                .mapPage(protocolMethodData -> protocolMethodData.toObject(Deployment.class));
+    }
 }

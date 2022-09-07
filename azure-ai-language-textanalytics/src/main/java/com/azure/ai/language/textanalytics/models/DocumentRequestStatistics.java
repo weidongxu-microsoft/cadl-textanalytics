@@ -15,19 +15,19 @@ public final class DocumentRequestStatistics {
      * Number of documents submitted in the request.
      */
     @JsonProperty(value = "documentsCount", required = true)
-    private long documentsCount;
+    private int documentsCount;
 
     /*
      * Number of valid documents. This excludes empty, over-size limit or non-supported languages documents.
      */
     @JsonProperty(value = "validDocumentsCount", required = true)
-    private long validDocumentsCount;
+    private int validDocumentsCount;
 
     /*
      * Number of invalid documents. This includes empty, over-size limit or non-supported languages documents.
      */
     @JsonProperty(value = "erroneousDocumentsCount", required = true)
-    private long erroneousDocumentsCount;
+    private int erroneousDocumentsCount;
 
     /*
      * Number of transactions for the request.
@@ -45,9 +45,9 @@ public final class DocumentRequestStatistics {
      */
     @JsonCreator
     public DocumentRequestStatistics(
-            @JsonProperty(value = "documentsCount", required = true) long documentsCount,
-            @JsonProperty(value = "validDocumentsCount", required = true) long validDocumentsCount,
-            @JsonProperty(value = "erroneousDocumentsCount", required = true) long erroneousDocumentsCount,
+            @JsonProperty(value = "documentsCount", required = true) int documentsCount,
+            @JsonProperty(value = "validDocumentsCount", required = true) int validDocumentsCount,
+            @JsonProperty(value = "erroneousDocumentsCount", required = true) int erroneousDocumentsCount,
             @JsonProperty(value = "transactionsCount", required = true) long transactionsCount) {
         this.documentsCount = documentsCount;
         this.validDocumentsCount = validDocumentsCount;
@@ -60,7 +60,7 @@ public final class DocumentRequestStatistics {
      *
      * @return the documentsCount value.
      */
-    public long getDocumentsCount() {
+    public int getDocumentsCount() {
         return this.documentsCount;
     }
 
@@ -70,7 +70,7 @@ public final class DocumentRequestStatistics {
      *
      * @return the validDocumentsCount value.
      */
-    public long getValidDocumentsCount() {
+    public int getValidDocumentsCount() {
         return this.validDocumentsCount;
     }
 
@@ -80,7 +80,7 @@ public final class DocumentRequestStatistics {
      *
      * @return the erroneousDocumentsCount value.
      */
-    public long getErroneousDocumentsCount() {
+    public int getErroneousDocumentsCount() {
         return this.erroneousDocumentsCount;
     }
 

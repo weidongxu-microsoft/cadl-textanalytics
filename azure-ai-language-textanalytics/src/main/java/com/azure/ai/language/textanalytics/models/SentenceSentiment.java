@@ -34,13 +34,13 @@ public final class SentenceSentiment {
      * The sentence offset from the start of the document.
      */
     @JsonProperty(value = "offset", required = true)
-    private long offset;
+    private int offset;
 
     /*
      * The length of the sentence.
      */
     @JsonProperty(value = "length", required = true)
-    private long length;
+    private int length;
 
     /*
      * The array of sentence targets for the sentence.
@@ -69,8 +69,8 @@ public final class SentenceSentiment {
             @JsonProperty(value = "sentiment", required = true) SentenceSentimentValue sentiment,
             @JsonProperty(value = "confidenceScores", required = true)
                     SentimentConfidenceScorePerLabel confidenceScores,
-            @JsonProperty(value = "offset", required = true) long offset,
-            @JsonProperty(value = "length", required = true) long length) {
+            @JsonProperty(value = "offset", required = true) int offset,
+            @JsonProperty(value = "length", required = true) int length) {
         this.text = text;
         this.sentiment = sentiment;
         this.confidenceScores = confidenceScores;
@@ -111,7 +111,7 @@ public final class SentenceSentiment {
      *
      * @return the offset value.
      */
-    public long getOffset() {
+    public int getOffset() {
         return this.offset;
     }
 
@@ -120,7 +120,7 @@ public final class SentenceSentiment {
      *
      * @return the length value.
      */
-    public long getLength() {
+    public int getLength() {
         return this.length;
     }
 

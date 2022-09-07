@@ -1245,7 +1245,7 @@ schemas:
           description: ''
       protocol: {}
       type: integer
-      precision: 64
+      precision: 32
   dates:
     - *ref_30
 operationGroups:

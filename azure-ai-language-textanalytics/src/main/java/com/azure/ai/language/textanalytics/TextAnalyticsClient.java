@@ -125,8 +125,8 @@ public final class TextAnalyticsClient {
      * <table border="1">
      *     <caption>Query Parameters</caption>
      *     <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-     *     <tr><td>top</td><td>Long</td><td>No</td><td>The maximum number of resources to return from the collection.</td></tr>
-     *     <tr><td>skip</td><td>Long</td><td>No</td><td>An offset into the collection of the first resource to be returned.</td></tr>
+     *     <tr><td>top</td><td>Integer</td><td>No</td><td>The maximum number of resources to return from the collection.</td></tr>
+     *     <tr><td>skip</td><td>Integer</td><td>No</td><td>An offset into the collection of the first resource to be returned.</td></tr>
      *     <tr><td>showStats</td><td>Boolean</td><td>No</td><td>If set to true, response will contain request and document level statistics.</td></tr>
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
@@ -160,10 +160,10 @@ public final class TextAnalyticsClient {
      *     ]
      *     @nextLink: String (Required)
      *     tasks (Required): {
-     *         completed: long (Required)
-     *         failed: long (Required)
-     *         inProgress: long (Required)
-     *         total: long (Required)
+     *         completed: int (Required)
+     *         failed: int (Required)
+     *         inProgress: int (Required)
+     *         total: int (Required)
      *         items (Optional): [
      *              (Optional){
      *                 taskName: String (Required)
@@ -173,9 +173,9 @@ public final class TextAnalyticsClient {
      *         ]
      *     }
      *     statistics (Optional): {
-     *         documentsCount: long (Required)
-     *         validDocumentsCount: long (Required)
-     *         erroneousDocumentsCount: long (Required)
+     *         documentsCount: int (Required)
+     *         validDocumentsCount: int (Required)
+     *         erroneousDocumentsCount: int (Required)
      *         transactionsCount: long (Required)
      *     }
      * }

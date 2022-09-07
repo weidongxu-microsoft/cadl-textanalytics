@@ -15,13 +15,13 @@ public final class DocumentStatistics {
      * Number of text elements recognized in the document.
      */
     @JsonProperty(value = "charactersCount", required = true)
-    private long charactersCount;
+    private int charactersCount;
 
     /*
      * Number of transactions for the document.
      */
     @JsonProperty(value = "transactionsCount", required = true)
-    private long transactionsCount;
+    private int transactionsCount;
 
     /**
      * Creates an instance of DocumentStatistics class.
@@ -31,8 +31,8 @@ public final class DocumentStatistics {
      */
     @JsonCreator
     public DocumentStatistics(
-            @JsonProperty(value = "charactersCount", required = true) long charactersCount,
-            @JsonProperty(value = "transactionsCount", required = true) long transactionsCount) {
+            @JsonProperty(value = "charactersCount", required = true) int charactersCount,
+            @JsonProperty(value = "transactionsCount", required = true) int transactionsCount) {
         this.charactersCount = charactersCount;
         this.transactionsCount = transactionsCount;
     }
@@ -42,7 +42,7 @@ public final class DocumentStatistics {
      *
      * @return the charactersCount value.
      */
-    public long getCharactersCount() {
+    public int getCharactersCount() {
         return this.charactersCount;
     }
 
@@ -51,7 +51,7 @@ public final class DocumentStatistics {
      *
      * @return the transactionsCount value.
      */
-    public long getTransactionsCount() {
+    public int getTransactionsCount() {
         return this.transactionsCount;
     }
 }

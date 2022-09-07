@@ -162,9 +162,9 @@ public final class ProjectsClient {
      * <table border="1">
      *     <caption>Query Parameters</caption>
      *     <tr><th>Name</th><th>Type</th><th>Required</th><th>Description</th></tr>
-     *     <tr><td>top</td><td>Long</td><td>No</td><td>The top parameter</td></tr>
-     *     <tr><td>skip</td><td>Long</td><td>No</td><td>The skip parameter</td></tr>
-     *     <tr><td>maxpagesize</td><td>Long</td><td>No</td><td>The maxPageSize parameter</td></tr>
+     *     <tr><td>top</td><td>Integer</td><td>No</td><td>The top parameter</td></tr>
+     *     <tr><td>skip</td><td>Integer</td><td>No</td><td>The skip parameter</td></tr>
+     *     <tr><td>maxpagesize</td><td>Integer</td><td>No</td><td>The maxPageSize parameter</td></tr>
      * </table>
      *
      * You can add these to a request with {@link RequestOptions#addQueryParam}
@@ -290,5 +290,43 @@ public final class ProjectsClient {
         // Generated convenience method for getWithResponse
         RequestOptions requestOptions = new RequestOptions();
         return getWithResponse(projectName, requestOptions).getValue().toObject(Project.class);
+    }
+
+    /**
+     * Lists the existing projects.
+     *
+     * @param top The top parameter.
+     * @param skip The skip parameter.
+     * @param maxPageSize The maxPageSize parameter.
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of Project items as paginated response with {@link PagedIterable}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedIterable<Project> list(Integer top, Integer skip, Integer maxPageSize) {
+        // Generated convenience method for list
+        return new PagedIterable<>(client.list(top, skip, maxPageSize));
+    }
+
+    /**
+     * Lists the existing projects.
+     *
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of Project items as paginated response with {@link PagedIterable}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedIterable<Project> list() {
+        // Generated convenience method for list
+        return new PagedIterable<>(client.list());
     }
 }

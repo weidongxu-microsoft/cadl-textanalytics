@@ -2044,7 +2044,7 @@ schemas:
                                             description: ''
                                         protocol: {}
                                         type: integer
-                                        precision: 64
+                                        precision: 32
                                       serializedName: charactersCount
                                       required: true
                                       nullable: false
