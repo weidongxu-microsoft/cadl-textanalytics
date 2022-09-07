@@ -299,7 +299,7 @@ interface Deployments {
   deleteDeployment is LongRunningResourceDelete<Deployment>;
 
   @doc("Lists the existing deployments.")
-  list is ResourceList<Deployment>;
+  listDeployments is ResourceList<Deployment>;
 
   @doc("Swaps two existing deployments with each other.")
   @collectionAction(Deployment, "swap")
@@ -323,7 +323,7 @@ interface Jobs {
 interface Global {
   @get
   @route("languages")
-  getSupportedLanguages(
+  listSupportedLanguages(
     ...ListQueryParams,
     ...Foundations.ApiVersionParameter
   ): SupportedLanguages | Foundations.ErrorResponse;

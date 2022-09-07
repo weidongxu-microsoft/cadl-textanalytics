@@ -572,7 +572,7 @@
     },
     "/authoring/analyze-text/projects/{projectName}/deployments": {
       "get": {
-        "operationId": "Deployments_List",
+        "operationId": "Deployments_ListDeployments",
         "description": "Lists the existing deployments.",
         "parameters": [
           {
@@ -991,7 +991,7 @@
     },
     "/authoring/analyze-text/projects/global/languages": {
       "get": {
-        "operationId": "Global_GetSupportedLanguages",
+        "operationId": "Global_ListSupportedLanguages",
         "parameters": [
           {
             "$ref": "#/parameters/ListQueryParams.top"

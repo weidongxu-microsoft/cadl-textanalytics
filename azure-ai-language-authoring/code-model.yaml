@@ -2233,10 +2233,10 @@ operationGroups:
             schema: *ref_39
       - language:
           default:
-            name: list
+            name: listDeployments
             description: Lists the existing deployments.
         protocol: {}
-        operationId: Deployments_list
+        operationId: Deployments_listDeployments
         apiVersions:
           - version: 2022-05-15-preview
         extensions:
@@ -2627,10 +2627,10 @@ operationGroups:
     operations:
       - language:
           default:
-            name: getSupportedLanguages
+            name: listSupportedLanguages
             description: ''
         protocol: {}
-        operationId: Global_getSupportedLanguages
+        operationId: Global_listSupportedLanguages
         apiVersions:
           - version: 2022-05-15-preview
         extensions:
