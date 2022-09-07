@@ -33,10 +33,23 @@
   ],
   "security": [
     {
+      "OAuth2Auth": [
+        "https://textanalytics.authoring.com/.default"
+      ]
+    },
+    {
       "ApiKeyAuth": []
     }
   ],
   "securityDefinitions": {
+    "OAuth2Auth": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://textanalytics.authoring.com/oauth2/token",
+      "scopes": {
+        "https://textanalytics.authoring.com/.default": ""
+      }
+    },
     "ApiKeyAuth": {
       "type": "apiKey",
       "in": "header",
@@ -316,6 +329,7 @@
       },
       "get": {
         "operationId": "Projects_Get",
+        "summary": "Get project",
         "description": "Gets the details of a project.",
         "parameters": [
           {

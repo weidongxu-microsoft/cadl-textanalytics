@@ -12,12 +12,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Fluent
 public final class SwapDeploymentsOptions {
     /*
+     * deployment option
+     *
      * Represents the first deployment name.
      */
     @JsonProperty(value = "firstDeploymentName", required = true)
     private String firstDeploymentName;
 
     /*
+     * deployment option
+     *
      * Represents the second deployment name.
      */
     @JsonProperty(value = "secondDeploymentName", required = true)
@@ -38,7 +42,9 @@ public final class SwapDeploymentsOptions {
     }
 
     /**
-     * Get the firstDeploymentName property: Represents the first deployment name.
+     * Get the firstDeploymentName property: deployment option
+     *
+     * <p>Represents the first deployment name.
      *
      * @return the firstDeploymentName value.
      */
@@ -47,7 +53,9 @@ public final class SwapDeploymentsOptions {
     }
 
     /**
-     * Get the secondDeploymentName property: Represents the second deployment name.
+     * Get the secondDeploymentName property: deployment option
+     *
+     * <p>Represents the second deployment name.
      *
      * @return the secondDeploymentName value.
      */
