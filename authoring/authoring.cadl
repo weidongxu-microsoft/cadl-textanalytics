@@ -12,7 +12,7 @@ using Azure.Core;
 // NOTE: These features are missing:
 // - Security definition for apiKey
 
-@useAuth(ApiKeyAuth<ApiKeyLocation.header, "Ocp-Apim-Subscription-Key">)
+@useAuth(OAuth2Auth<[AuthFlow]> | ApiKeyAuth<ApiKeyLocation.header, "Ocp-Apim-Subscription-Key">)
 @server(
   "{Endpoint}/language",
   "Language Service",
@@ -25,6 +25,13 @@ using Azure.Core;
 @versionedDependency(Azure.Core.Versions.v1_0_Preview_1)
 @route("/authoring/analyze-text/")
 namespace Azure.Language.Authoring;
+
+model AuthFlow {
+  type: OAuth2FlowType.clientCredentials;
+  tokenUrl: "https://login.microsoftonline.com/oauth2/token";
+  refreshUrl: "https://login.microsoftonline.com/oauth2/refresh";
+  scopes: ["https://cognitiveservices.azure.com/.default"];
+}
 
 // Common Parameters
 
@@ -217,10 +224,14 @@ model TrainingJobOptions {
   modelLabel: string;
 }
 
+@summary("Swap deployment options")
+@doc("Define first name and second name for swap deployment options")
 model SwapDeploymentsOptions {
+  @summary("Deployment name")
   @doc("Represents the first deployment name.")
   firstDeploymentName: string;
 
+  @summary("Deployment name")
   @doc("Represents the second deployment name.")
   secondDeploymentName: string;
 }
@@ -236,6 +247,7 @@ interface Projects {
   @doc("Creates a new project or updates an existing one.")
   createOrUpdate is LongRunningResourceCreateOrUpdate<Project>;
 
+  @summary("Get project")
   @doc("Gets the details of a project.")
   get is ResourceRead<Project>;
 

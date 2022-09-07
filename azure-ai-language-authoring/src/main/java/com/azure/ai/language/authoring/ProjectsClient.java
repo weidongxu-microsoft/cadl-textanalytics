@@ -89,7 +89,9 @@ public final class ProjectsClient {
     }
 
     /**
-     * Gets the details of a project.
+     * Get project
+     *
+     * <p>Gets the details of a project.
      *
      * <p><strong>Response Body Schema</strong>
      *
@@ -269,7 +271,9 @@ public final class ProjectsClient {
     }
 
     /**
-     * Gets the details of a project.
+     * Get project
+     *
+     * <p>Gets the details of a project.
      *
      * @param projectName The projectName parameter.
      * @throws IllegalArgumentException thrown if parameters fail the validation.

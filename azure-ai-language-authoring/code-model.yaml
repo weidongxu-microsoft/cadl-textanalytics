@@ -733,12 +733,13 @@ schemas:
       language:
         default:
           name: SwapDeploymentsOptions
-          description: ''
+          description: Define first name and second name for swap deployment options
           namespace: Azure.Language.Authoring
         java:
           namespace: com.azure.language.authoring
       protocol: {}
       type: object
+      summary: Swap deployment options
       properties:
         - language:
             default:
@@ -747,6 +748,7 @@ schemas:
           protocol: {}
           schema: *ref_1
           serializedName: firstDeploymentName
+          summary: Deployment name
           required: true
           nullable: false
           readOnly: false
@@ -757,6 +759,7 @@ schemas:
           protocol: {}
           schema: *ref_1
           serializedName: secondDeploymentName
+          summary: Deployment name
           required: true
           nullable: false
           readOnly: false
@@ -1405,6 +1408,7 @@ operationGroups:
             description: Gets the details of a project.
         protocol: {}
         operationId: Projects_get
+        summary: Get project
         apiVersions:
           - version: 2022-05-15-preview
         extensions:
@@ -2839,6 +2843,9 @@ operationGroups:
 security:
   authenticationRequired: true
   schemes:
+    - type: OAuth2
+      scopes:
+        - https://cognitiveservices.azure.com/.default
     - type: Key
       name: Ocp-Apim-Subscription-Key
 globalParameters:
