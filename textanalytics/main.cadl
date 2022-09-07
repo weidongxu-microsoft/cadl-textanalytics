@@ -26,7 +26,7 @@ using Cadl.Versioning;
 
 @versionedDependency([[Versions.v2022_05_15_preview, Azure.Core.Versions.v1_0_Preview_1]])
 @versioned(Versions)
-@serviceTitle("Text Analytics")
+@serviceTitle("Microsoft Cognitive Language Service - Text Analytics")
 @doc("""
 The language service API is a suite of natural language processing
 (NLP) skills built with best-in-class Microsoft machine learning algorithms.  The

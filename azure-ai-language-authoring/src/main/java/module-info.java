@@ -8,6 +8,9 @@ module com.azure.ai.language.authoring {
     exports com.azure.ai.language.authoring;
     exports com.azure.ai.language.authoring.models;
 
+    opens com.azure.ai.language.authoring.implementation.models to
+            com.azure.core,
+            com.fasterxml.jackson.databind;
     opens com.azure.ai.language.authoring.models to
             com.azure.core,
             com.fasterxml.jackson.databind;

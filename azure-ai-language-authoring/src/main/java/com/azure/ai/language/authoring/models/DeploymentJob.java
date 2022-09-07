@@ -4,7 +4,7 @@
 
 package com.azure.ai.language.authoring.models;
 
-import com.azure.core.annotation.Fluent;
+import com.azure.core.annotation.Immutable;
 import com.azure.core.models.ResponseError;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,7 +12,7 @@ import java.time.OffsetDateTime;
 import java.util.List;
 
 /** The DeploymentJob model. */
-@Fluent
+@Immutable
 public final class DeploymentJob {
     /*
      * The job ID.
