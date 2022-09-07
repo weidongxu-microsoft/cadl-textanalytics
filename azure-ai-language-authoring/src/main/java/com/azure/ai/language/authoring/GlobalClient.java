@@ -32,7 +32,7 @@ public final class GlobalClient {
     }
 
     /**
-     * The getSupportedLanguages operation.
+     * The listSupportedLanguages operation.
      *
      * <p><strong>Query Parameters</strong>
      *
@@ -69,8 +69,8 @@ public final class GlobalClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedIterable<BinaryData> getSupportedLanguages(RequestOptions requestOptions) {
-        return new PagedIterable<>(this.client.getSupportedLanguages(requestOptions));
+    public PagedIterable<BinaryData> listSupportedLanguages(RequestOptions requestOptions) {
+        return new PagedIterable<>(this.client.listSupportedLanguages(requestOptions));
     }
 
     /**

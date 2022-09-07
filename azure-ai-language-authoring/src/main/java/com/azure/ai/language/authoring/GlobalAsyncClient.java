@@ -33,7 +33,7 @@ public final class GlobalAsyncClient {
     }
 
     /**
-     * The getSupportedLanguages operation.
+     * The listSupportedLanguages operation.
      *
      * <p><strong>Query Parameters</strong>
      *
@@ -70,8 +70,8 @@ public final class GlobalAsyncClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedFlux<BinaryData> getSupportedLanguages(RequestOptions requestOptions) {
-        return this.serviceClient.getSupportedLanguagesAsync(requestOptions);
+    public PagedFlux<BinaryData> listSupportedLanguages(RequestOptions requestOptions) {
+        return this.serviceClient.listSupportedLanguagesAsync(requestOptions);
     }
 
     /**

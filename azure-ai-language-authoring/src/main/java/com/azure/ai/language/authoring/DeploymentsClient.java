@@ -143,8 +143,8 @@ public final class DeploymentsClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedIterable<BinaryData> list(String projectName, RequestOptions requestOptions) {
-        return new PagedIterable<>(this.client.list(projectName, requestOptions));
+    public PagedIterable<BinaryData> listDeployments(String projectName, RequestOptions requestOptions) {
+        return new PagedIterable<>(this.client.listDeployments(projectName, requestOptions));
     }
 
     /**
@@ -212,8 +212,8 @@ public final class DeploymentsClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedIterable<Deployment> list(String projectName) {
-        // Generated convenience method for list
-        return new PagedIterable<>(client.list(projectName));
+    public PagedIterable<Deployment> listDeployments(String projectName) {
+        // Generated convenience method for listDeployments
+        return new PagedIterable<>(client.listDeployments(projectName));
     }
 }
