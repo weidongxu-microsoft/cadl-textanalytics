@@ -8,11 +8,15 @@ import com.azure.core.annotation.Immutable;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** The SwapDeploymentsOptions model. */
+/**
+ * Swap deployment options
+ *
+ * <p>define first name and second name for swap deployment options.
+ */
 @Immutable
 public final class SwapDeploymentsOptions {
     /*
-     * deployment option
+     * Deployment name
      *
      * Represents the first deployment name.
      */
@@ -20,7 +24,7 @@ public final class SwapDeploymentsOptions {
     private String firstDeploymentName;
 
     /*
-     * deployment option
+     * Deployment name
      *
      * Represents the second deployment name.
      */
@@ -42,7 +46,7 @@ public final class SwapDeploymentsOptions {
     }
 
     /**
-     * Get the firstDeploymentName property: deployment option
+     * Get the firstDeploymentName property: Deployment name
      *
      * <p>Represents the first deployment name.
      *
@@ -53,7 +57,7 @@ public final class SwapDeploymentsOptions {
     }
 
     /**
-     * Get the secondDeploymentName property: deployment option
+     * Get the secondDeploymentName property: Deployment name
      *
      * <p>Represents the second deployment name.
      *

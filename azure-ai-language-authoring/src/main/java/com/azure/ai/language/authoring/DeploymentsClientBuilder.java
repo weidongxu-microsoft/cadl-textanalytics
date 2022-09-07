@@ -56,7 +56,7 @@ public final class DeploymentsClientBuilder
     @Generated private static final String SDK_VERSION = "version";
 
     @Generated
-    private static final String[] DEFAULT_SCOPES = new String[] {"https://textanalytics.authoring.com/.default"};
+    private static final String[] DEFAULT_SCOPES = new String[] {"https://cognitiveservices.azure.com/.default"};
 
     @Generated
     private final Map<String, String> properties = CoreUtils.getProperties("azure-ai-language-authoring.properties");

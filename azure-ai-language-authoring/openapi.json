@@ -34,7 +34,7 @@
   "security": [
     {
       "OAuth2Auth": [
-        "https://textanalytics.authoring.com/.default"
+        "https://cognitiveservices.azure.com/.default"
       ]
     },
     {
@@ -45,9 +45,9 @@
     "OAuth2Auth": {
       "type": "oauth2",
       "flow": "application",
-      "tokenUrl": "https://textanalytics.authoring.com/oauth2/token",
+      "tokenUrl": "https://login.microsoftonline.com/oauth2/token",
       "scopes": {
-        "https://textanalytics.authoring.com/.default": ""
+        "https://cognitiveservices.azure.com/.default": ""
       }
     },
     "ApiKeyAuth": {
@@ -1367,6 +1367,7 @@
           "description": "Represents the second deployment name."
         }
       },
+      "description": "define first name and second name for swap deployment options",
       "required": [
         "firstDeploymentName",
         "secondDeploymentName"

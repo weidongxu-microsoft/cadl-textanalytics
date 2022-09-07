@@ -28,9 +28,9 @@ namespace Azure.Language.Authoring;
 
 model AuthFlow {
   type: OAuth2FlowType.clientCredentials;
-  tokenUrl: "https://textanalytics.authoring.com/oauth2/token";
-  refreshUrl: "https://textanalytics.authoring.com/oauth2/refresh";
-  scopes: ["https://textanalytics.authoring.com/.default"];
+  tokenUrl: "https://login.microsoftonline.com/oauth2/token";
+  refreshUrl: "https://login.microsoftonline.com/oauth2/refresh";
+  scopes: ["https://cognitiveservices.azure.com/.default"];
 }
 
 // Common Parameters
@@ -224,12 +224,14 @@ model TrainingJobOptions {
   modelLabel: string;
 }
 
+@summary("Swap deployment options")
+@doc("Define first name and second name for swap deployment options")
 model SwapDeploymentsOptions {
-  @summary("deployment option")
+  @summary("Deployment name")
   @doc("Represents the first deployment name.")
   firstDeploymentName: string;
 
-  @summary("deployment option")
+  @summary("Deployment name")
   @doc("Represents the second deployment name.")
   secondDeploymentName: string;
 }
