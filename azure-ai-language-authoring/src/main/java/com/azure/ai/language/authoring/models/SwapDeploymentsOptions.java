@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Swap deployment options
  *
- * <p>define first name and second name for swap deployment options.
+ * <p>Define first name and second name for swap deployment options.
  */
 @Immutable
 public final class SwapDeploymentsOptions {

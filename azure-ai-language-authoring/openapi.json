@@ -1367,7 +1367,7 @@
           "description": "Represents the second deployment name."
         }
       },
-      "description": "define first name and second name for swap deployment options",
+      "description": "Define first name and second name for swap deployment options",
       "required": [
         "firstDeploymentName",
         "secondDeploymentName"
