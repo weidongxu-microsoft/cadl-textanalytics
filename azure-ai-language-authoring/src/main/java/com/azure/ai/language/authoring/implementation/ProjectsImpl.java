@@ -86,7 +86,7 @@ public final class ProjectsImpl {
                 @HeaderParam("content-type") String contentType,
                 @QueryParam("api-version") String apiVersion,
                 @HeaderParam("accept") String accept,
-                @BodyParam("application/merge-patch+json") BinaryData optionalProperties,
+                @BodyParam("application/merge-patch+json") BinaryData project,
                 RequestOptions requestOptions,
                 Context context);
 
@@ -238,14 +238,19 @@ public final class ProjectsImpl {
      *
      * <pre>{@code
      * {
-     *     projectKind: String(CustomSingleLabelClassification/CustomMultiLabelClassification/CustomEntityRecognition) (Optional)
-     *     storageInputContainerName: String (Optional)
+     *     projectName: String (Required)
+     *     projectKind: String(CustomSingleLabelClassification/CustomMultiLabelClassification/CustomEntityRecognition) (Required)
+     *     storageInputContainerName: String (Required)
      *     settings (Optional): {
      *         String: String (Optional)
      *     }
      *     multilingual: Boolean (Optional)
      *     description: String (Optional)
-     *     language: String (Optional)
+     *     language: String (Required)
+     *     createdDateTime: OffsetDateTime (Required)
+     *     lastModifiedDateTime: OffsetDateTime (Required)
+     *     lastTrainedDateTime: OffsetDateTime (Required)
+     *     lastDeployedDateTime: OffsetDateTime (Required)
      * }
      * }</pre>
      *
@@ -270,7 +275,7 @@ public final class ProjectsImpl {
      * }</pre>
      *
      * @param projectName The projectName parameter.
-     * @param optionalProperties The template for adding optional properties.
+     * @param project The project parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -280,7 +285,7 @@ public final class ProjectsImpl {
      */
     @ServiceMethod(returns = ReturnType.SINGLE)
     private Mono<Response<BinaryData>> createOrUpdateWithResponseAsync(
-            String projectName, BinaryData optionalProperties, RequestOptions requestOptions) {
+            String projectName, BinaryData project, RequestOptions requestOptions) {
         final String contentType = "application/merge-patch+json";
         final String accept = "application/json";
         return FluxUtil.withContext(
@@ -291,7 +296,7 @@ public final class ProjectsImpl {
                                 contentType,
                                 this.client.getServiceVersion().getVersion(),
                                 accept,
-                                optionalProperties,
+                                project,
                                 requestOptions,
                                 context));
     }
@@ -303,14 +308,19 @@ public final class ProjectsImpl {
      *
      * <pre>{@code
      * {
-     *     projectKind: String(CustomSingleLabelClassification/CustomMultiLabelClassification/CustomEntityRecognition) (Optional)
-     *     storageInputContainerName: String (Optional)
+     *     projectName: String (Required)
+     *     projectKind: String(CustomSingleLabelClassification/CustomMultiLabelClassification/CustomEntityRecognition) (Required)
+     *     storageInputContainerName: String (Required)
      *     settings (Optional): {
      *         String: String (Optional)
      *     }
      *     multilingual: Boolean (Optional)
      *     description: String (Optional)
-     *     language: String (Optional)
+     *     language: String (Required)
+     *     createdDateTime: OffsetDateTime (Required)
+     *     lastModifiedDateTime: OffsetDateTime (Required)
+     *     lastTrainedDateTime: OffsetDateTime (Required)
+     *     lastDeployedDateTime: OffsetDateTime (Required)
      * }
      * }</pre>
      *
@@ -335,7 +345,7 @@ public final class ProjectsImpl {
      * }</pre>
      *
      * @param projectName The projectName parameter.
-     * @param optionalProperties The template for adding optional properties.
+     * @param project The project parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -345,10 +355,10 @@ public final class ProjectsImpl {
      */
     @ServiceMethod(returns = ReturnType.LONG_RUNNING_OPERATION)
     public PollerFlux<BinaryData, BinaryData> beginCreateOrUpdateAsync(
-            String projectName, BinaryData optionalProperties, RequestOptions requestOptions) {
+            String projectName, BinaryData project, RequestOptions requestOptions) {
         return PollerFlux.create(
                 Duration.ofSeconds(1),
-                () -> this.createOrUpdateWithResponseAsync(projectName, optionalProperties, requestOptions),
+                () -> this.createOrUpdateWithResponseAsync(projectName, project, requestOptions),
                 new DefaultPollingStrategy<>(
                         this.client.getHttpPipeline(),
                         null,
@@ -366,14 +376,19 @@ public final class ProjectsImpl {
      *
      * <pre>{@code
      * {
-     *     projectKind: String(CustomSingleLabelClassification/CustomMultiLabelClassification/CustomEntityRecognition) (Optional)
-     *     storageInputContainerName: String (Optional)
+     *     projectName: String (Required)
+     *     projectKind: String(CustomSingleLabelClassification/CustomMultiLabelClassification/CustomEntityRecognition) (Required)
+     *     storageInputContainerName: String (Required)
      *     settings (Optional): {
      *         String: String (Optional)
      *     }
      *     multilingual: Boolean (Optional)
      *     description: String (Optional)
-     *     language: String (Optional)
+     *     language: String (Required)
+     *     createdDateTime: OffsetDateTime (Required)
+     *     lastModifiedDateTime: OffsetDateTime (Required)
+     *     lastTrainedDateTime: OffsetDateTime (Required)
+     *     lastDeployedDateTime: OffsetDateTime (Required)
      * }
      * }</pre>
      *
@@ -398,7 +413,7 @@ public final class ProjectsImpl {
      * }</pre>
      *
      * @param projectName The projectName parameter.
-     * @param optionalProperties The template for adding optional properties.
+     * @param project The project parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -408,14 +423,12 @@ public final class ProjectsImpl {
      */
     @ServiceMethod(returns = ReturnType.LONG_RUNNING_OPERATION)
     public SyncPoller<BinaryData, BinaryData> beginCreateOrUpdate(
-            String projectName, BinaryData optionalProperties, RequestOptions requestOptions) {
-        return this.beginCreateOrUpdateAsync(projectName, optionalProperties, requestOptions).getSyncPoller();
+            String projectName, BinaryData project, RequestOptions requestOptions) {
+        return this.beginCreateOrUpdateAsync(projectName, project, requestOptions).getSyncPoller();
     }
 
     /**
-     * Get project
-     *
-     * <p>Gets the details of a project.
+     * Gets the details of a project.
      *
      * <p><strong>Response Body Schema</strong>
      *
@@ -460,9 +473,7 @@ public final class ProjectsImpl {
     }
 
     /**
-     * Get project
-     *
-     * <p>Gets the details of a project.
+     * Gets the details of a project.
      *
      * <p><strong>Response Body Schema</strong>
      *

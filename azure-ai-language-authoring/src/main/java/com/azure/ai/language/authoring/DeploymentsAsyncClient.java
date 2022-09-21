@@ -145,8 +145,8 @@ public final class DeploymentsAsyncClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedFlux<BinaryData> listDeployments(String projectName, RequestOptions requestOptions) {
-        return this.serviceClient.listDeploymentsAsync(projectName, requestOptions);
+    public PagedFlux<BinaryData> list(String projectName, RequestOptions requestOptions) {
+        return this.serviceClient.listAsync(projectName, requestOptions);
     }
 
     /**
@@ -214,10 +214,10 @@ public final class DeploymentsAsyncClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedFlux<Deployment> listDeployments(String projectName) {
-        // Generated convenience method for listDeployments
+    public PagedFlux<Deployment> list(String projectName) {
+        // Generated convenience method for list
         RequestOptions requestOptions = new RequestOptions();
-        return listDeployments(projectName, requestOptions)
+        return list(projectName, requestOptions)
                 .mapPage(protocolMethodData -> protocolMethodData.toObject(Deployment.class));
     }
 }

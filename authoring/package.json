@@ -2,11 +2,11 @@
     "name": "cadl-tests",
     "type": "module",
     "dependencies": {
-      "@cadl-lang/compiler": "^0.34.0",
-      "@cadl-lang/rest": "^0.16.0",
-      "@azure-tools/cadl-autorest": "^0.19.0",
-      "@azure-tools/cadl-azure-core": "^0.6.0",
-      "@azure-tools/cadl-java": "https://github.com/Azure/autorest.java/releases/download/%40azure-tools%2Fcadl-java_0.1.0-dev.6/cadl-extension.azure-tools-cadl-java-0.1.0-dev.6.tgz"
+      "@cadl-lang/compiler": "~0.35.0",
+      "@cadl-lang/rest": "~0.17.0",
+      "@azure-tools/cadl-autorest": "~0.20.0",
+      "@azure-tools/cadl-azure-core": "~0.7.0",
+      "@azure-tools/cadl-java": "https://github.com/Azure/autorest.java/releases/download/%40azure-tools%2Fcadl-java_0.1.0-dev.7/cadl-extension.azure-tools-cadl-java-0.1.0-dev.7.tgz"
     },
     "private": true
   }

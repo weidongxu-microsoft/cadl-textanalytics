@@ -5,13 +5,13 @@
 package com.azure.ai.language.authoring.implementation.models;
 
 import com.azure.ai.language.authoring.models.Project;
-import com.azure.core.annotation.Fluent;
+import com.azure.core.annotation.Immutable;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 /** Paged collection of Project items. */
-@Fluent
+@Immutable
 public final class CustomPageProject {
     /*
      * The Project items on this page
@@ -31,7 +31,7 @@ public final class CustomPageProject {
      * @param value the value value to set.
      */
     @JsonCreator
-    public CustomPageProject(@JsonProperty(value = "value", required = true) List<Project> value) {
+    private CustomPageProject(@JsonProperty(value = "value", required = true) List<Project> value) {
         this.value = value;
     }
 
@@ -51,16 +51,5 @@ public final class CustomPageProject {
      */
     public String getNextLink() {
         return this.nextLink;
-    }
-
-    /**
-     * Set the nextLink property: The link to the next page of items.
-     *
-     * @param nextLink the nextLink value to set.
-     * @return the CustomPageProject object itself.
-     */
-    public CustomPageProject setNextLink(String nextLink) {
-        this.nextLink = nextLink;
-        return this;
     }
 }

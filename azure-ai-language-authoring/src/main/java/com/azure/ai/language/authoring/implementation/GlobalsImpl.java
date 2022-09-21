@@ -71,7 +71,7 @@ public final class GlobalsImpl {
                 value = ResourceModifiedException.class,
                 code = {409})
         @UnexpectedResponseExceptionType(HttpResponseException.class)
-        Mono<Response<BinaryData>> listSupportedLanguages(
+        Mono<Response<BinaryData>> getSupportedLanguages(
                 @HostParam("Endpoint") String endpoint,
                 @QueryParam("api-version") String apiVersion,
                 @HeaderParam("accept") String accept,
@@ -109,7 +109,7 @@ public final class GlobalsImpl {
                 value = ResourceModifiedException.class,
                 code = {409})
         @UnexpectedResponseExceptionType(HttpResponseException.class)
-        Mono<Response<BinaryData>> listSupportedLanguagesNext(
+        Mono<Response<BinaryData>> getSupportedLanguagesNext(
                 @PathParam(value = "nextLink", encoded = true) String nextLink,
                 @HostParam("Endpoint") String endpoint,
                 @HeaderParam("accept") String accept,
@@ -137,7 +137,7 @@ public final class GlobalsImpl {
     }
 
     /**
-     * The listSupportedLanguages operation.
+     * The getSupportedLanguages operation.
      *
      * <p><strong>Query Parameters</strong>
      *
@@ -174,11 +174,11 @@ public final class GlobalsImpl {
      *     {@link Mono}.
      */
     @ServiceMethod(returns = ReturnType.SINGLE)
-    private Mono<PagedResponse<BinaryData>> listSupportedLanguagesSinglePageAsync(RequestOptions requestOptions) {
+    private Mono<PagedResponse<BinaryData>> getSupportedLanguagesSinglePageAsync(RequestOptions requestOptions) {
         final String accept = "application/json";
         return FluxUtil.withContext(
                         context ->
-                                service.listSupportedLanguages(
+                                service.getSupportedLanguages(
                                         this.client.getEndpoint(),
                                         this.client.getServiceVersion().getVersion(),
                                         accept,
@@ -196,7 +196,7 @@ public final class GlobalsImpl {
     }
 
     /**
-     * The listSupportedLanguages operation.
+     * The getSupportedLanguages operation.
      *
      * <p><strong>Query Parameters</strong>
      *
@@ -232,19 +232,19 @@ public final class GlobalsImpl {
      * @return paged collection of SupportedLanguage items as paginated response with {@link PagedFlux}.
      */
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedFlux<BinaryData> listSupportedLanguagesAsync(RequestOptions requestOptions) {
+    public PagedFlux<BinaryData> getSupportedLanguagesAsync(RequestOptions requestOptions) {
         RequestOptions requestOptionsForNextPage = new RequestOptions();
         requestOptionsForNextPage.setContext(
                 requestOptions != null && requestOptions.getContext() != null
                         ? requestOptions.getContext()
                         : Context.NONE);
         return new PagedFlux<>(
-                () -> listSupportedLanguagesSinglePageAsync(requestOptions),
-                nextLink -> listSupportedLanguagesNextSinglePageAsync(nextLink, requestOptionsForNextPage));
+                () -> getSupportedLanguagesSinglePageAsync(requestOptions),
+                nextLink -> getSupportedLanguagesNextSinglePageAsync(nextLink, requestOptionsForNextPage));
     }
 
     /**
-     * The listSupportedLanguages operation.
+     * The getSupportedLanguages operation.
      *
      * <p><strong>Query Parameters</strong>
      *
@@ -280,8 +280,8 @@ public final class GlobalsImpl {
      * @return paged collection of SupportedLanguage items as paginated response with {@link PagedIterable}.
      */
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedIterable<BinaryData> listSupportedLanguages(RequestOptions requestOptions) {
-        return new PagedIterable<>(listSupportedLanguagesAsync(requestOptions));
+    public PagedIterable<BinaryData> getSupportedLanguages(RequestOptions requestOptions) {
+        return new PagedIterable<>(getSupportedLanguagesAsync(requestOptions));
     }
 
     /**
@@ -460,12 +460,12 @@ public final class GlobalsImpl {
      *     {@link Mono}.
      */
     @ServiceMethod(returns = ReturnType.SINGLE)
-    private Mono<PagedResponse<BinaryData>> listSupportedLanguagesNextSinglePageAsync(
+    private Mono<PagedResponse<BinaryData>> getSupportedLanguagesNextSinglePageAsync(
             String nextLink, RequestOptions requestOptions) {
         final String accept = "application/json";
         return FluxUtil.withContext(
                         context ->
-                                service.listSupportedLanguagesNext(
+                                service.getSupportedLanguagesNext(
                                         nextLink, this.client.getEndpoint(), accept, requestOptions, context))
                 .map(
                         res ->

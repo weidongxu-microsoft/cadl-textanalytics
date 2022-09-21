@@ -4,6 +4,8 @@
 
 package com.azure.ai.language.authoring;
 
+import com.azure.ai.language.authoring.models.SupportedLanguage;
+import com.azure.ai.language.authoring.models.TrainingConfigVersion;
 import com.azure.core.annotation.Generated;
 import com.azure.core.annotation.ReturnType;
 import com.azure.core.annotation.ServiceClient;
@@ -32,7 +34,7 @@ public final class GlobalClient {
     }
 
     /**
-     * The listSupportedLanguages operation.
+     * The getSupportedLanguages operation.
      *
      * <p><strong>Query Parameters</strong>
      *
@@ -69,8 +71,8 @@ public final class GlobalClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedIterable<BinaryData> listSupportedLanguages(RequestOptions requestOptions) {
-        return new PagedIterable<>(this.client.listSupportedLanguages(requestOptions));
+    public PagedIterable<BinaryData> getSupportedLanguages(RequestOptions requestOptions) {
+        return new PagedIterable<>(this.client.getSupportedLanguages(requestOptions));
     }
 
     /**
@@ -113,5 +115,82 @@ public final class GlobalClient {
     @ServiceMethod(returns = ReturnType.COLLECTION)
     public PagedIterable<BinaryData> listTrainingConfigVersions(RequestOptions requestOptions) {
         return new PagedIterable<>(this.client.listTrainingConfigVersions(requestOptions));
+    }
+
+    /**
+     * The getSupportedLanguages operation.
+     *
+     * @param top The top parameter.
+     * @param skip The skip parameter.
+     * @param maxPageSize The maxPageSize parameter.
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of SupportedLanguage items as paginated response with {@link PagedIterable}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedIterable<SupportedLanguage> getSupportedLanguages(Integer top, Integer skip, Integer maxPageSize) {
+        // Generated convenience method for getSupportedLanguages
+        return new PagedIterable<>(client.getSupportedLanguages(top, skip, maxPageSize));
+    }
+
+    /**
+     * The getSupportedLanguages operation.
+     *
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of SupportedLanguage items as paginated response with {@link PagedIterable}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedIterable<SupportedLanguage> getSupportedLanguages() {
+        // Generated convenience method for getSupportedLanguages
+        return new PagedIterable<>(client.getSupportedLanguages());
+    }
+
+    /**
+     * The listTrainingConfigVersions operation.
+     *
+     * @param top The top parameter.
+     * @param skip The skip parameter.
+     * @param maxPageSize The maxPageSize parameter.
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of TrainingConfigVersion items as paginated response with {@link PagedIterable}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedIterable<TrainingConfigVersion> listTrainingConfigVersions(
+            Integer top, Integer skip, Integer maxPageSize) {
+        // Generated convenience method for listTrainingConfigVersions
+        return new PagedIterable<>(client.listTrainingConfigVersions(top, skip, maxPageSize));
+    }
+
+    /**
+     * The listTrainingConfigVersions operation.
+     *
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of TrainingConfigVersion items as paginated response with {@link PagedIterable}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedIterable<TrainingConfigVersion> listTrainingConfigVersions() {
+        // Generated convenience method for listTrainingConfigVersions
+        return new PagedIterable<>(client.listTrainingConfigVersions());
     }
 }

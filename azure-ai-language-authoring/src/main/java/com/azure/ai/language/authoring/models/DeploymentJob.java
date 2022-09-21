@@ -59,42 +59,27 @@ public final class DeploymentJob {
     /*
      * The id property.
      */
-    @JsonProperty(value = "id", required = true)
+    @JsonProperty(value = "id", required = true, access = JsonProperty.Access.WRITE_ONLY)
     private String id;
 
     /**
      * Creates an instance of DeploymentJob class.
      *
      * @param jobId the jobId value to set.
-     * @param createdDateTime the createdDateTime value to set.
-     * @param lastUpdatedDateTime the lastUpdatedDateTime value to set.
-     * @param expirationDateTime the expirationDateTime value to set.
      * @param status the status value to set.
      * @param warnings the warnings value to set.
      * @param errors the errors value to set.
-     * @param id the id value to set.
      */
     @JsonCreator
-    public DeploymentJob(
+    private DeploymentJob(
             @JsonProperty(value = "jobId", required = true) String jobId,
-            @JsonProperty(value = "createdDateTime", required = true, access = JsonProperty.Access.WRITE_ONLY)
-                    OffsetDateTime createdDateTime,
-            @JsonProperty(value = "lastUpdatedDateTime", required = true, access = JsonProperty.Access.WRITE_ONLY)
-                    OffsetDateTime lastUpdatedDateTime,
-            @JsonProperty(value = "expirationDateTime", required = true, access = JsonProperty.Access.WRITE_ONLY)
-                    OffsetDateTime expirationDateTime,
             @JsonProperty(value = "status", required = true) JobStatus status,
             @JsonProperty(value = "warnings", required = true) List<JobWarning> warnings,
-            @JsonProperty(value = "errors", required = true) ResponseError errors,
-            @JsonProperty(value = "id", required = true) String id) {
+            @JsonProperty(value = "errors", required = true) ResponseError errors) {
         this.jobId = jobId;
-        this.createdDateTime = createdDateTime;
-        this.lastUpdatedDateTime = lastUpdatedDateTime;
-        this.expirationDateTime = expirationDateTime;
         this.status = status;
         this.warnings = warnings;
         this.errors = errors;
-        this.id = id;
     }
 
     /**

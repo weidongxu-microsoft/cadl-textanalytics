@@ -144,7 +144,7 @@ public final class DeploymentsImpl {
                 value = ResourceModifiedException.class,
                 code = {409})
         @UnexpectedResponseExceptionType(HttpResponseException.class)
-        Mono<Response<BinaryData>> listDeployments(
+        Mono<Response<BinaryData>> list(
                 @HostParam("Endpoint") String endpoint,
                 @PathParam("projectName") String projectName,
                 @QueryParam("api-version") String apiVersion,
@@ -185,7 +185,7 @@ public final class DeploymentsImpl {
                 value = ResourceModifiedException.class,
                 code = {409})
         @UnexpectedResponseExceptionType(HttpResponseException.class)
-        Mono<Response<BinaryData>> listDeploymentsNext(
+        Mono<Response<BinaryData>> listNext(
                 @PathParam(value = "nextLink", encoded = true) String nextLink,
                 @HostParam("Endpoint") String endpoint,
                 @HeaderParam("accept") String accept,
@@ -484,12 +484,11 @@ public final class DeploymentsImpl {
      *     Mono}.
      */
     @ServiceMethod(returns = ReturnType.SINGLE)
-    private Mono<PagedResponse<BinaryData>> listDeploymentsSinglePageAsync(
-            String projectName, RequestOptions requestOptions) {
+    private Mono<PagedResponse<BinaryData>> listSinglePageAsync(String projectName, RequestOptions requestOptions) {
         final String accept = "application/json";
         return FluxUtil.withContext(
                         context ->
-                                service.listDeployments(
+                                service.list(
                                         this.client.getEndpoint(),
                                         projectName,
                                         this.client.getServiceVersion().getVersion(),
@@ -532,15 +531,15 @@ public final class DeploymentsImpl {
      * @return paged collection of Deployment items as paginated response with {@link PagedFlux}.
      */
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedFlux<BinaryData> listDeploymentsAsync(String projectName, RequestOptions requestOptions) {
+    public PagedFlux<BinaryData> listAsync(String projectName, RequestOptions requestOptions) {
         RequestOptions requestOptionsForNextPage = new RequestOptions();
         requestOptionsForNextPage.setContext(
                 requestOptions != null && requestOptions.getContext() != null
                         ? requestOptions.getContext()
                         : Context.NONE);
         return new PagedFlux<>(
-                () -> listDeploymentsSinglePageAsync(projectName, requestOptions),
-                nextLink -> listDeploymentsNextSinglePageAsync(nextLink, requestOptionsForNextPage));
+                () -> listSinglePageAsync(projectName, requestOptions),
+                nextLink -> listNextSinglePageAsync(nextLink, requestOptionsForNextPage));
     }
 
     /**
@@ -568,8 +567,8 @@ public final class DeploymentsImpl {
      * @return paged collection of Deployment items as paginated response with {@link PagedIterable}.
      */
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedIterable<BinaryData> listDeployments(String projectName, RequestOptions requestOptions) {
-        return new PagedIterable<>(listDeploymentsAsync(projectName, requestOptions));
+    public PagedIterable<BinaryData> list(String projectName, RequestOptions requestOptions) {
+        return new PagedIterable<>(listAsync(projectName, requestOptions));
     }
 
     /**
@@ -700,13 +699,11 @@ public final class DeploymentsImpl {
      *     Mono}.
      */
     @ServiceMethod(returns = ReturnType.SINGLE)
-    private Mono<PagedResponse<BinaryData>> listDeploymentsNextSinglePageAsync(
-            String nextLink, RequestOptions requestOptions) {
+    private Mono<PagedResponse<BinaryData>> listNextSinglePageAsync(String nextLink, RequestOptions requestOptions) {
         final String accept = "application/json";
         return FluxUtil.withContext(
                         context ->
-                                service.listDeploymentsNext(
-                                        nextLink, this.client.getEndpoint(), accept, requestOptions, context))
+                                service.listNext(nextLink, this.client.getEndpoint(), accept, requestOptions, context))
                 .map(
                         res ->
                                 new PagedResponseBase<>(

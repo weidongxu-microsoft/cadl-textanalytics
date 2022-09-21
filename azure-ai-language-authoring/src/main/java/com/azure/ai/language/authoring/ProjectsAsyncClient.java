@@ -43,14 +43,19 @@ public final class ProjectsAsyncClient {
      *
      * <pre>{@code
      * {
-     *     projectKind: String(CustomSingleLabelClassification/CustomMultiLabelClassification/CustomEntityRecognition) (Optional)
-     *     storageInputContainerName: String (Optional)
+     *     projectName: String (Required)
+     *     projectKind: String(CustomSingleLabelClassification/CustomMultiLabelClassification/CustomEntityRecognition) (Required)
+     *     storageInputContainerName: String (Required)
      *     settings (Optional): {
      *         String: String (Optional)
      *     }
      *     multilingual: Boolean (Optional)
      *     description: String (Optional)
-     *     language: String (Optional)
+     *     language: String (Required)
+     *     createdDateTime: OffsetDateTime (Required)
+     *     lastModifiedDateTime: OffsetDateTime (Required)
+     *     lastTrainedDateTime: OffsetDateTime (Required)
+     *     lastDeployedDateTime: OffsetDateTime (Required)
      * }
      * }</pre>
      *
@@ -75,7 +80,7 @@ public final class ProjectsAsyncClient {
      * }</pre>
      *
      * @param projectName The projectName parameter.
-     * @param optionalProperties The template for adding optional properties.
+     * @param project The project parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -86,14 +91,12 @@ public final class ProjectsAsyncClient {
     @Generated
     @ServiceMethod(returns = ReturnType.LONG_RUNNING_OPERATION)
     public PollerFlux<BinaryData, BinaryData> beginCreateOrUpdate(
-            String projectName, BinaryData optionalProperties, RequestOptions requestOptions) {
-        return this.serviceClient.beginCreateOrUpdateAsync(projectName, optionalProperties, requestOptions);
+            String projectName, BinaryData project, RequestOptions requestOptions) {
+        return this.serviceClient.beginCreateOrUpdateAsync(projectName, project, requestOptions);
     }
 
     /**
-     * Get project
-     *
-     * <p>Gets the details of a project.
+     * Gets the details of a project.
      *
      * <p><strong>Response Body Schema</strong>
      *
@@ -273,9 +276,7 @@ public final class ProjectsAsyncClient {
     }
 
     /**
-     * Get project
-     *
-     * <p>Gets the details of a project.
+     * Gets the details of a project.
      *
      * @param projectName The projectName parameter.
      * @throws IllegalArgumentException thrown if parameters fail the validation.

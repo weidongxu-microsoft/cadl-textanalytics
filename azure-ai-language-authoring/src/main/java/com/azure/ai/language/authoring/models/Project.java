@@ -16,7 +16,7 @@ public final class Project {
     /*
      * The projectName property.
      */
-    @JsonProperty(value = "projectName", required = true)
+    @JsonProperty(value = "projectName", required = true, access = JsonProperty.Access.WRITE_ONLY)
     private String projectName;
 
     /*
@@ -83,37 +83,18 @@ public final class Project {
     /**
      * Creates an instance of Project class.
      *
-     * @param projectName the projectName value to set.
      * @param projectKind the projectKind value to set.
      * @param storageInputContainerName the storageInputContainerName value to set.
      * @param language the language value to set.
-     * @param createdDateTime the createdDateTime value to set.
-     * @param lastModifiedDateTime the lastModifiedDateTime value to set.
-     * @param lastTrainedDateTime the lastTrainedDateTime value to set.
-     * @param lastDeployedDateTime the lastDeployedDateTime value to set.
      */
     @JsonCreator
     public Project(
-            @JsonProperty(value = "projectName", required = true) String projectName,
             @JsonProperty(value = "projectKind", required = true) ProjectKind projectKind,
             @JsonProperty(value = "storageInputContainerName", required = true) String storageInputContainerName,
-            @JsonProperty(value = "language", required = true) String language,
-            @JsonProperty(value = "createdDateTime", required = true, access = JsonProperty.Access.WRITE_ONLY)
-                    OffsetDateTime createdDateTime,
-            @JsonProperty(value = "lastModifiedDateTime", required = true, access = JsonProperty.Access.WRITE_ONLY)
-                    OffsetDateTime lastModifiedDateTime,
-            @JsonProperty(value = "lastTrainedDateTime", required = true, access = JsonProperty.Access.WRITE_ONLY)
-                    OffsetDateTime lastTrainedDateTime,
-            @JsonProperty(value = "lastDeployedDateTime", required = true, access = JsonProperty.Access.WRITE_ONLY)
-                    OffsetDateTime lastDeployedDateTime) {
-        this.projectName = projectName;
+            @JsonProperty(value = "language", required = true) String language) {
         this.projectKind = projectKind;
         this.storageInputContainerName = storageInputContainerName;
         this.language = language;
-        this.createdDateTime = createdDateTime;
-        this.lastModifiedDateTime = lastModifiedDateTime;
-        this.lastTrainedDateTime = lastTrainedDateTime;
-        this.lastDeployedDateTime = lastDeployedDateTime;
     }
 
     /**

@@ -30,7 +30,7 @@ public final class JobWarning {
      * @param message the message value to set.
      */
     @JsonCreator
-    public JobWarning(
+    private JobWarning(
             @JsonProperty(value = "code", required = true) String code,
             @JsonProperty(value = "message", required = true) String message) {
         this.code = code;

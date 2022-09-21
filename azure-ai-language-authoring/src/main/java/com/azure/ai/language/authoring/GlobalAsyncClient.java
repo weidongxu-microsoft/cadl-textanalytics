@@ -5,6 +5,8 @@
 package com.azure.ai.language.authoring;
 
 import com.azure.ai.language.authoring.implementation.GlobalsImpl;
+import com.azure.ai.language.authoring.models.SupportedLanguage;
+import com.azure.ai.language.authoring.models.TrainingConfigVersion;
 import com.azure.core.annotation.Generated;
 import com.azure.core.annotation.ReturnType;
 import com.azure.core.annotation.ServiceClient;
@@ -33,7 +35,7 @@ public final class GlobalAsyncClient {
     }
 
     /**
-     * The listSupportedLanguages operation.
+     * The getSupportedLanguages operation.
      *
      * <p><strong>Query Parameters</strong>
      *
@@ -70,8 +72,8 @@ public final class GlobalAsyncClient {
      */
     @Generated
     @ServiceMethod(returns = ReturnType.COLLECTION)
-    public PagedFlux<BinaryData> listSupportedLanguages(RequestOptions requestOptions) {
-        return this.serviceClient.listSupportedLanguagesAsync(requestOptions);
+    public PagedFlux<BinaryData> getSupportedLanguages(RequestOptions requestOptions) {
+        return this.serviceClient.getSupportedLanguagesAsync(requestOptions);
     }
 
     /**
@@ -114,5 +116,107 @@ public final class GlobalAsyncClient {
     @ServiceMethod(returns = ReturnType.COLLECTION)
     public PagedFlux<BinaryData> listTrainingConfigVersions(RequestOptions requestOptions) {
         return this.serviceClient.listTrainingConfigVersionsAsync(requestOptions);
+    }
+
+    /**
+     * The getSupportedLanguages operation.
+     *
+     * @param top The top parameter.
+     * @param skip The skip parameter.
+     * @param maxPageSize The maxPageSize parameter.
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of SupportedLanguage items as paginated response with {@link PagedFlux}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedFlux<SupportedLanguage> getSupportedLanguages(Integer top, Integer skip, Integer maxPageSize) {
+        // Generated convenience method for getSupportedLanguages
+        RequestOptions requestOptions = new RequestOptions();
+        if (top != null) {
+            requestOptions.addQueryParam("top", String.valueOf(top));
+        }
+        if (skip != null) {
+            requestOptions.addQueryParam("skip", String.valueOf(skip));
+        }
+        if (maxPageSize != null) {
+            requestOptions.addQueryParam("maxpagesize", String.valueOf(maxPageSize));
+        }
+        return getSupportedLanguages(requestOptions)
+                .mapPage(protocolMethodData -> protocolMethodData.toObject(SupportedLanguage.class));
+    }
+
+    /**
+     * The getSupportedLanguages operation.
+     *
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of SupportedLanguage items as paginated response with {@link PagedFlux}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedFlux<SupportedLanguage> getSupportedLanguages() {
+        // Generated convenience method for getSupportedLanguages
+        RequestOptions requestOptions = new RequestOptions();
+        return getSupportedLanguages(requestOptions)
+                .mapPage(protocolMethodData -> protocolMethodData.toObject(SupportedLanguage.class));
+    }
+
+    /**
+     * The listTrainingConfigVersions operation.
+     *
+     * @param top The top parameter.
+     * @param skip The skip parameter.
+     * @param maxPageSize The maxPageSize parameter.
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of TrainingConfigVersion items as paginated response with {@link PagedFlux}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedFlux<TrainingConfigVersion> listTrainingConfigVersions(Integer top, Integer skip, Integer maxPageSize) {
+        // Generated convenience method for listTrainingConfigVersions
+        RequestOptions requestOptions = new RequestOptions();
+        if (top != null) {
+            requestOptions.addQueryParam("top", String.valueOf(top));
+        }
+        if (skip != null) {
+            requestOptions.addQueryParam("skip", String.valueOf(skip));
+        }
+        if (maxPageSize != null) {
+            requestOptions.addQueryParam("maxpagesize", String.valueOf(maxPageSize));
+        }
+        return listTrainingConfigVersions(requestOptions)
+                .mapPage(protocolMethodData -> protocolMethodData.toObject(TrainingConfigVersion.class));
+    }
+
+    /**
+     * The listTrainingConfigVersions operation.
+     *
+     * @throws com.azure.core.exception.HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return paged collection of TrainingConfigVersion items as paginated response with {@link PagedFlux}.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public PagedFlux<TrainingConfigVersion> listTrainingConfigVersions() {
+        // Generated convenience method for listTrainingConfigVersions
+        RequestOptions requestOptions = new RequestOptions();
+        return listTrainingConfigVersions(requestOptions)
+                .mapPage(protocolMethodData -> protocolMethodData.toObject(TrainingConfigVersion.class));
     }
 }

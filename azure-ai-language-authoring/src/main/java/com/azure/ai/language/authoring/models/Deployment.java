@@ -5,7 +5,6 @@
 package com.azure.ai.language.authoring.models;
 
 import com.azure.core.annotation.Immutable;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** The Deployment model. */
@@ -14,18 +13,11 @@ public final class Deployment {
     /*
      * The name property.
      */
-    @JsonProperty(value = "name", required = true)
+    @JsonProperty(value = "name", required = true, access = JsonProperty.Access.WRITE_ONLY)
     private String name;
 
-    /**
-     * Creates an instance of Deployment class.
-     *
-     * @param name the name value to set.
-     */
-    @JsonCreator
-    public Deployment(@JsonProperty(value = "name", required = true) String name) {
-        this.name = name;
-    }
+    /** Creates an instance of Deployment class. */
+    private Deployment() {}
 
     /**
      * Get the name property: The name property.
