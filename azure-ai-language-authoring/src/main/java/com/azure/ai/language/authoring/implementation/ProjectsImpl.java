@@ -361,6 +361,7 @@ public final class ProjectsImpl {
                 () -> this.createOrUpdateWithResponseAsync(projectName, project, requestOptions),
                 new DefaultPollingStrategy<>(
                         this.client.getHttpPipeline(),
+                        "{Endpoint}/language".replace("{Endpoint}", this.client.getEndpoint()),
                         null,
                         requestOptions != null && requestOptions.getContext() != null
                                 ? requestOptions.getContext()
@@ -572,6 +573,7 @@ public final class ProjectsImpl {
                 () -> this.deleteWithResponseAsync(projectName, requestOptions),
                 new DefaultPollingStrategy<>(
                         this.client.getHttpPipeline(),
+                        "{Endpoint}/language".replace("{Endpoint}", this.client.getEndpoint()),
                         null,
                         requestOptions != null && requestOptions.getContext() != null
                                 ? requestOptions.getContext()
@@ -835,6 +837,7 @@ public final class ProjectsImpl {
                 () -> this.exportWithResponseAsync(projectName, projectFileVersion, requestOptions),
                 new DefaultPollingStrategy<>(
                         this.client.getHttpPipeline(),
+                        "{Endpoint}/language".replace("{Endpoint}", this.client.getEndpoint()),
                         null,
                         requestOptions != null && requestOptions.getContext() != null
                                 ? requestOptions.getContext()
@@ -904,6 +907,7 @@ public final class ProjectsImpl {
                 () -> this.importxWithResponseAsync(projectName, requestOptions),
                 new DefaultPollingStrategy<>(
                         this.client.getHttpPipeline(),
+                        "{Endpoint}/language".replace("{Endpoint}", this.client.getEndpoint()),
                         null,
                         requestOptions != null && requestOptions.getContext() != null
                                 ? requestOptions.getContext()
@@ -992,6 +996,7 @@ public final class ProjectsImpl {
                 () -> this.trainWithResponseAsync(projectName, body, requestOptions),
                 new DefaultPollingStrategy<>(
                         this.client.getHttpPipeline(),
+                        "{Endpoint}/language".replace("{Endpoint}", this.client.getEndpoint()),
                         null,
                         requestOptions != null && requestOptions.getContext() != null
                                 ? requestOptions.getContext()

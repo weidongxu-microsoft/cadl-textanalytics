@@ -319,6 +319,7 @@ public final class DeploymentsImpl {
                 () -> this.deployProjectWithResponseAsync(projectName, deploymentName, requestOptions),
                 new DefaultPollingStrategy<>(
                         this.client.getHttpPipeline(),
+                        "{Endpoint}/language".replace("{Endpoint}", this.client.getEndpoint()),
                         null,
                         requestOptions != null && requestOptions.getContext() != null
                                 ? requestOptions.getContext()
@@ -422,6 +423,7 @@ public final class DeploymentsImpl {
                 () -> this.deleteDeploymentWithResponseAsync(projectName, deploymentName, requestOptions),
                 new DefaultPollingStrategy<>(
                         this.client.getHttpPipeline(),
+                        "{Endpoint}/language".replace("{Endpoint}", this.client.getEndpoint()),
                         null,
                         requestOptions != null && requestOptions.getContext() != null
                                 ? requestOptions.getContext()
@@ -637,6 +639,7 @@ public final class DeploymentsImpl {
                 () -> this.swapDeploymentsWithResponseAsync(projectName, body, requestOptions),
                 new DefaultPollingStrategy<>(
                         this.client.getHttpPipeline(),
+                        "{Endpoint}/language".replace("{Endpoint}", this.client.getEndpoint()),
                         null,
                         requestOptions != null && requestOptions.getContext() != null
                                 ? requestOptions.getContext()
